@@ -1943,7 +1943,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #167c09;
+  background: #fff296;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3112,6 +3112,6 @@ pre .javascript .function {
   }
 }
 body {
-  background: url("/imges/background.jpg");
+  background: url("../../../imges/background.JPG");
   background-attachment: fixed;
 }
