@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title></title>
+    <url>%2F2017%2F10%2F11%2Ffirst-blog%2F</url>
+    <content type="text"><![CDATA[title:总结一下自己用hexo和github注册博客过程中的一些感受 date: 2017-10-11 21:35:06 categories: hexo、github 今天注册了一个hexo+GitHub的一个博客。下面的是一些自己一些的感受。改天有时间写一个详细版的教程关于建立个人博客的。虽然网上已经有很多了，但是自己还是有不少想要分享的地方，下面的是最简单的几点，也是自己写的第一篇博客。 1、_config的语法非常严谨、当你要用里面的语法的时候首先需要做的一件事情把对应地方的#去掉，如果不把你想要设置的对应的地方的#去掉，当你在执行hexo g的时候会报或者是 你设置的这个地方对应的效果没有效果。 2、_config在设置的时候，”：“后面必须一个空格，这也是因为_config的语法比较严谨的原因 3、GitHub有缓存时间，这是一个比较令人头疼的问题，自己在_config设置完所有的参数之后，然后执行hexo g、hexo d.然后是过了几分钟之后自己打开了自己博客，发现竟然返回了404页面，当时也是比较懵逼的，然后就一直谷歌上面各种找原因。看到一个人回答说是GitHub的缓存原因。这才放心，后面等了一会儿之后设置的东西相应的显示出来了。 总结：总的来说大体常见的问题就是这些。在打扮博客的过程中肯定会碰到各种各样的问题，抽时间来一个大总结。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2017%2F10%2F11%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
