@@ -73,23 +73,27 @@
 
 
 
+  
+
+
+  <link rel="alternate" href="/rss.xml" title="fanzhanxiang' Blog" type="application/atom+xml" />
 
 
 
 
 
 
-<meta name="description" content="title: aboutdate: 2017-10-13 13:24:34 type: about">
+<meta name="description" content="title: aboutdate: 2017-10-13 13:24:34 type: “about”">
 <meta property="og:type" content="website">
 <meta property="og:title" content="fanzhanxiang&#39; Blog">
 <meta property="og:url" content="https://github.com/fanzhanxiang/fanzhanxiang.github.io/about/index.html">
 <meta property="og:site_name" content="fanzhanxiang&#39; Blog">
-<meta property="og:description" content="title: aboutdate: 2017-10-13 13:24:34 type: about">
+<meta property="og:description" content="title: aboutdate: 2017-10-13 13:24:34 type: “about”">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-13T05:26:53.072Z">
+<meta property="og:updated_time" content="2017-10-16T10:11:33.139Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="fanzhanxiang&#39; Blog">
-<meta name="twitter:description" content="title: aboutdate: 2017-10-13 13:24:34 type: about">
+<meta name="twitter:description" content="title: aboutdate: 2017-10-13 13:24:34 type: “about”">
 
 
 
@@ -131,6 +135,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?70d56d12906fabf6e40451bcc32f74fb";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -333,7 +347,7 @@
         
           <hr>
 <p>title: about<br>date: 2017-10-13 13:24:34</p>
-<h2 id="type-about"><a href="#type-about" class="headerlink" title="type: about"></a>type: about</h2>
+<h2 id="type-“about”"><a href="#type-“about”" class="headerlink" title="type: “about”"></a>type: “about”</h2>
         
       </div>
       
@@ -351,6 +365,11 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="uyan_frame"></div>
+    </div>
 
   
 
@@ -417,6 +436,13 @@
           </nav>
 
           
+            <div class="feed-link motion-element">
+              <a href="/rss.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
 
           <div class="links-of-author motion-element">
             
@@ -428,9 +454,9 @@
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="https://www.zhihu.com/people/fanzhanxiang" target="_blank" title="Zhihu">
+                  <a href="https://www.zhihu.com/people/fanzhanxiang" target="_blank" title="zhihu">
                     
-                      <i class="fa fa-fw fa-zhihu"></i>Zhihu</a>
+                      <i class="fa fa-fw fa-zhihu"></i>zhihu</a>
                 </span>
               
             
@@ -458,7 +484,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#type-about"><span class="nav-number">1.</span> <span class="nav-text">type: about</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#type-“about”"><span class="nav-number">1.</span> <span class="nav-text">type: “about”</span></a></li></ol></div>
             
 
           </div>
@@ -643,6 +669,14 @@
 
 
 
+  
+    
+
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2146646"></script>
+      <!-- UY END -->
+    
   
 
 
@@ -986,6 +1020,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("gtryF4rxF1PxfjM5YUg8KtHt-gzGzoHsz", "0TDJfOqEbG9kBxxsekWQg1zc");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
