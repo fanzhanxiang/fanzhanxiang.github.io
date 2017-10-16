@@ -7,7 +7,7 @@
     <link>https://github.com/fanzhanxiang/fanzhanxiang.github.io/</link>
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     
-    <description>javascript node.js</description>
+    <description>一枚在IT路上的小菜鸟</description>
     <pubDate>Sun, 15 Oct 2017 11:51:38 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
@@ -25,26 +25,6 @@
       <content:encoded><![CDATA[<p>今天注册了一个hexo+GitHub的一个博客。下面的是一些自己一些的感受。改天有时间写一个详细版的教程关于建立个人博客的。虽然网上已经有很多了，但是自己还是有不少想要分享的地方，下面的是最简单的几点，也是自己写的第一篇博客。</p><a id="more"></a><ul><li><p>1、<strong>_config</strong>的语法非常严谨、当你要用里面的语法的时候首先需要做的一件事情把对应地方的#去掉，如果不把你想要设置的对应的地方的#去掉，当你在执行hexo g的时候会报或者是 你设置的这个地方对应的效果没有效果。</p></li><li><p>2、<strong>_config</strong>在设置的时候，”：“后面必须一个空格，这也是因为_config的语法比较严谨的原因</p></li><li><p>3、<strong>GitHub</strong>有缓存时间，这是一个比较令人头疼的问题，自己在_config设置完所有的参数之后，然后执行hexo g、hexo d.然后是过了几分钟之后自己打开了自己博客，发现竟然返回了404页面，当时也是比较懵逼的，然后就一直谷歌上面各种找原因。看到一个人回答说是GitHub的缓存原因。这才放心，后面等了一会儿之后设置的东西相应的显示出来了。</p></li></ul><p>总结：总的来说大体常见的问题就是这些。在打扮博客的过程中肯定会碰到各种各样的问题，抽时间来一个大总结。</p>]]></content:encoded>
       
       <comments>https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/10/15/New%20Document/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/10/11/first-blog/</link>
-      <guid>https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/10/11/first-blog/</guid>
-      <pubDate>Wed, 11 Oct 2017 13:35:06 GMT</pubDate>
-      <description>
-      
-        
-        
-          &lt;hr&gt;
-&lt;h2 id=&quot;title-搭建个人博客的感受&quot;&gt;&lt;a href=&quot;#title-搭建个人博客的感受&quot; class=&quot;headerlink&quot; title=&quot;title: 搭建个人博客的感受&quot;&gt;&lt;/a&gt;title: 搭建个人博客的感受&lt;/h2&gt;&lt;p&gt;今天注册了一个hexo
-        
-      
-      </description>
-      
-      <content:encoded><![CDATA[<hr><h2 id="title-搭建个人博客的感受"><a href="#title-搭建个人博客的感受" class="headerlink" title="title: 搭建个人博客的感受"></a>title: 搭建个人博客的感受</h2><p>今天注册了一个hexo+GitHub的一个博客。下面的是一些自己一些的感受。改天有时间写一个详细版的教程关于建立个人博客的。虽然网上已经有很多了，但是自己还是有不少想要分享的地方，下面的是最简单的几点，也是自己写的第一篇博客。</p><ul><li><p>1、<strong>_config</strong>的语法非常严谨、当你要用里面的语法的时候首先需要做的一件事情把对应地方的#去掉，如果不把你想要设置的对应的地方的#去掉，当你在执行hexo g的时候会报或者是 你设置的这个地方对应的效果没有效果。</p></li><li><p>2、<strong>_config</strong>在设置的时候，”：“后面必须一个空格，这也是因为_config的语法比较严谨的原因</p></li><li><p>3、<strong>GitHub</strong>有缓存时间，这是一个比较令人头疼的问题，自己在_config设置完所有的参数之后，然后执行hexo g、hexo d.然后是过了几分钟之后自己打开了自己博客，发现竟然返回了404页面，当时也是比较懵逼的，然后就一直谷歌上面各种找原因。看到一个人回答说是GitHub的缓存原因。这才放心，后面等了一会儿之后设置的东西相应的显示出来了。</p></li></ul><p>总结：总的来说大体常见的问题就是这些。在打扮博客的过程中肯定会碰到各种各样的问题，抽时间来一个大总结。</p><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new <span class="string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>]]></content:encoded>
-      
-      <comments>https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/10/11/first-blog/#disqus_thread</comments>
     </item>
     
     <item>
