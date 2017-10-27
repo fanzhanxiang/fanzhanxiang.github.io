@@ -8,8 +8,29 @@
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>一枚在IT路上的小菜鸟</description>
-    <pubDate>Sun, 15 Oct 2017 11:51:38 GMT</pubDate>
+    <pubDate>Fri, 27 Oct 2017 10:11:07 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>DOM0级事件绑定和DOM2级事件及其扩展</title>
+      <link>https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/10/27/fanzhanxiang/</link>
+      <guid>https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/10/27/fanzhanxiang/</guid>
+      <pubDate>Fri, 27 Oct 2017 08:06:22 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;tag：JavaScript&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在页面上写一个id为box的一个div，然后设置一些它的宽度和高度，然后在后面在做事件绑定的时使用。先是使用DOM0级试讲绑定。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;box.onclick=function(){console.log(1)}&lt;/em&gt;&lt;/strong&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;box.onclick=funciton(){console.log(2)}&lt;/em&gt;&lt;/strong&gt;;&lt;/li&gt;
+&lt;li&gt;后面这个事件会把前一个事件给覆盖掉，最后在控制台中只会输出一个2.因为在使用DOM0级事件绑定的时候，&lt;strong&gt;只能给元素的某一个行为绑定一次方法，第二次绑定会把前面的覆盖掉&lt;/strong&gt;（这里主要是某一个行为绑定一次方法，不同的行为是可以绑定同一个方法的，比如这里是&lt;strong&gt;box.onmouseover=funciton(){console.log(2)}&lt;/strong&gt;;这里是可以输出2的）；所以最后在控制台只能输出一次2。DOM0级事件绑定和DOM2级事件绑定最大的区别也是在这里，但是DOM2级事件中也有一些其他特别的地方。
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p>tag：JavaScript</p><ul><li>在页面上写一个id为box的一个div，然后设置一些它的宽度和高度，然后在后面在做事件绑定的时使用。先是使用DOM0级试讲绑定。</li><li><strong><em>box.onclick=function(){console.log(1)}</em></strong>;</li><li><strong><em>box.onclick=funciton(){console.log(2)}</em></strong>;</li><li>后面这个事件会把前一个事件给覆盖掉，最后在控制台中只会输出一个2.因为在使用DOM0级事件绑定的时候，<strong>只能给元素的某一个行为绑定一次方法，第二次绑定会把前面的覆盖掉</strong>（这里主要是某一个行为绑定一次方法，不同的行为是可以绑定同一个方法的，比如这里是<strong>box.onmouseover=funciton(){console.log(2)}</strong>;这里是可以输出2的）；所以最后在控制台只能输出一次2。DOM0级事件绑定和DOM2级事件绑定最大的区别也是在这里，但是DOM2级事件中也有一些其他特别的地方。<a id="more"></a></li><li>1、当我们使用DOM2级事件绑定，它的原理是让box通过原型链一直找到EventTarget这个内置类原型上的addEventListener方法实现的。DOM2级事件绑定解决了DOM0级事件绑定中“只能给元素的某一个行为绑定一次方法，第二次绑定会把前面的覆盖掉”这个问题，比如下面代码<br><strong>box.addEventListener(“click”,function(){console.log(1)},false)</strong>;<br><strong>box.addEventListener(“click”,function(){console.log(2)},false)</strong>;点击box的时候，控制台上输出了1和2，方法中的第三个参数false表示的是该事件在冒泡阶段触发。总结出DOM2级事件可以给某一个元素的同一个行为绑定多个不同的方法。</li><li>2、DOM2：DOMO中行为类型，我们用DOM2一样可以绑定；而且DOM2中还提供了DOM0中没有的行为类型，比如DOM2中有一个行为<strong>DOMContentLoaded</strong>（当页面中的DOM结构或者是叫HTML结构加载完成触发的行为）这个行为是DOM0中没有的。像这个事件的绑定是这样的。<br><strong>document.addEventListener(“DOMContentLoaded”,function(){},false)</strong>；但是这个绑定和：window.onload=function(){}是有区别的，这个代表的意思是当页面中所有的资源都加载完成（图片、HTML结构、音视频…）才会执行后面的函数；并且在一个页面中只能使用一次，后面再写会把前面的覆盖掉，因为它是DOM0事件绑定，所以只能绑定一次。<br>并且在jQuery中也提供了类似的方法：<strong>$(document).ready(function(){})—&gt;$(function(){})</strong>只要也拿中的HTML结构加载完成就会执行对应的函数；并且在一个页面中可以出现多次，因为jQuery在写这个方法的时候是使用DOM2级事件绑定来写的，并且绑定的行为是DOM2中的“DOMContentLoaded”这个行为来绑定的。</li><li>3、移除DOM2事件绑定：<strong>box.addEventListener(“click”,function(e){console.log(this)},false)，</strong>-&gt;这里的this是box；<strong>box.removeEventListener(“click”,function(e){console.log(this)},false)</strong>这里并不能移除事件绑定，因为两个匿名函数是两个不同的堆内存，因此不能移除事件绑定；把匿名函数换成实名函数就可以了，比如 ：<strong>function fn1(){console.log(this)}</strong>, <strong>box.addEventListener(“click”,fn1,false)</strong>,<strong>box.removeEventListener(“click”,fn1,false)</strong>;这里就可以实现移除了，并且在控制台中不会输出任何东西，因为在刚绑定的时候就已经移除了。<br>移除的时候需要保证三个参数：行为、方法、那个阶段发生，一个都不能差，因为在使用DOM2事件绑定的时候，我们一般绑定的都是实名函数，如果这样 <strong>box.removeEventListener(“click”,fn1,true)</strong>移除，就移除不掉了，还会输出this</li><li><p>4、只能给某个元素的同一个行为绑定多个“<strong>不同</strong>”的方法（如果方法相同了，只能留一个），例如<br><strong>function fn1(){console.log(1)};  box.removeEventListener (“click”,fn1,false),box.removeEventListener(“click”,fn1,false)</strong>,在点击的时候只会输出一个1。当行为触发，会按照绑定的先后顺序依次把绑定的方法执行；执行的方法中的this是当前被绑定事件的本身。并且在绑定方法的时候，浏览器天生自带的一个东西叫事件池（也有叫程序池的），用来存储绑定的事件的。</p><p>但是在IE6~8浏览器中不支持addEventListener/removeEventListener,如果想要实现DOM2级事件绑定只能用attachEvent,移除是使用detachEvent。  box.attachEvent(“onclick”,fn1);<br>并且它只有两个参数，不能向addEventListener那样控制在那个阶段发生，只能在冒泡阶段发生，行为需要添加”on”,和DOM0特别类似</p></li></ul>]]></content:encoded>
+      
+      <comments>https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/10/27/fanzhanxiang/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>搭建个人博客的感受</title>
