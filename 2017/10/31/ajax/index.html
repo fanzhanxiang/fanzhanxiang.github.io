@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="ajax技术是一种常用的技术当我们使用DOM2级事件绑定，它的原理是让box通过原型链一直找到EventTarget这个内置类原型上的addEventListener方法实现的。DOM2级事件绑定解决了DOM0级事件绑定中“只能给元素的某一个行为绑定一次方法，第二次绑定会把前面的覆盖掉”这个问题，比如下面代码box.addEventListener(“click”,function(){conso">
+<meta name="description" content="Ajax:async javascript and xml 叫做异步的JS和XML(可扩展标记语言)，它是一种客户端的JS方法，用来向服务器端发送请求(还可以传递给服务器数据)，然后把服务器端返回的内容获取到，它一般运行在客户端的浏览器中的。 Ajax的四个步骤12341、var xhr=new XMLHttpRequest;   2、xhr.open(&amp;quot;请求方式&amp;quot;,&amp;quot">
 <meta name="keywords" content="javascript,Ajax">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ajax">
+<meta property="og:title" content="Ajax">
 <meta property="og:url" content="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/10/31/ajax/index.html">
 <meta property="og:site_name" content="fanzhanxiang&#39; Blog">
-<meta property="og:description" content="ajax技术是一种常用的技术当我们使用DOM2级事件绑定，它的原理是让box通过原型链一直找到EventTarget这个内置类原型上的addEventListener方法实现的。DOM2级事件绑定解决了DOM0级事件绑定中“只能给元素的某一个行为绑定一次方法，第二次绑定会把前面的覆盖掉”这个问题，比如下面代码box.addEventListener(“click”,function(){conso">
+<meta property="og:description" content="Ajax:async javascript and xml 叫做异步的JS和XML(可扩展标记语言)，它是一种客户端的JS方法，用来向服务器端发送请求(还可以传递给服务器数据)，然后把服务器端返回的内容获取到，它一般运行在客户端的浏览器中的。 Ajax的四个步骤12341、var xhr=new XMLHttpRequest;   2、xhr.open(&amp;quot;请求方式&amp;quot;,&amp;quot">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-31T12:48:25.393Z">
+<meta property="og:updated_time" content="2017-11-01T06:56:32.252Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ajax">
-<meta name="twitter:description" content="ajax技术是一种常用的技术当我们使用DOM2级事件绑定，它的原理是让box通过原型链一直找到EventTarget这个内置类原型上的addEventListener方法实现的。DOM2级事件绑定解决了DOM0级事件绑定中“只能给元素的某一个行为绑定一次方法，第二次绑定会把前面的覆盖掉”这个问题，比如下面代码box.addEventListener(“click”,function(){conso">
+<meta name="twitter:title" content="Ajax">
+<meta name="twitter:description" content="Ajax:async javascript and xml 叫做异步的JS和XML(可扩展标记语言)，它是一种客户端的JS方法，用来向服务器端发送请求(还可以传递给服务器数据)，然后把服务器端返回的内容获取到，它一般运行在客户端的浏览器中的。 Ajax的四个步骤12341、var xhr=new XMLHttpRequest;   2、xhr.open(&amp;quot;请求方式&amp;quot;,&amp;quot">
 
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>ajax | fanzhanxiang' Blog</title>
+  <title>Ajax | fanzhanxiang' Blog</title>
   
 
 
@@ -326,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ajax</h1>
+          <h1 class="post-title" itemprop="name headline">Ajax</h1>
         
 
         <div class="post-meta">
@@ -378,7 +378,7 @@
 
           
           
-             <span id="/2017/10/31/ajax/" class="leancloud_visitors" data-flag-title="ajax">
+             <span id="/2017/10/31/ajax/" class="leancloud_visitors" data-flag-title="Ajax">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -414,9 +414,36 @@
       
 
       
-        <p>ajax技术是一种常用的技术<br>当我们使用DOM2级事件绑定，它的原理是让box通过原型链一直找到EventTarget这个内置类原型上的addEventListener方法实现的。DOM2级事件绑定解决了DOM0级事件绑定中“只能给元素的某一个行为绑定一次方法，第二次绑定会把前面的覆盖掉”这个问题，比如下面代码<br><strong>box.addEventListener(“click”,function(){console.log(1)},false)</strong>;<br><strong>box.addEventListener(“click”,function(){console.log(2)},false)</strong>;点击box的时候，控制台上输出了1和2，方法中的第三个参数false表示的是该事件在冒泡阶段触发。总结出DOM2级事件可以给某一个元素的同一个行为绑定多个不同的方法。</p>
-<p> <strong>2、DOM2；</strong></p>
-<p> DOMO中行为类型，我们用DOM2一样可以绑定；而且DOM2中还提供了DOM0中没有的行为类型，比如DOM2中有一个行为<strong>DOMContentLoaded</strong>（当页面中的DOM结构或者是叫HTML结构加载完成触发的行为）这个行为是DOM0中没有的。像这个事件的绑定是这样的。<br> <strong>document.addEventListener(“DOMContentLoaded”,function(){},false)</strong> ； 但是这个绑定和：window.onload=function(){}是有区别的，这个代表的意思是当页面中所有的资源都加载完成（图片、HTML结构、音视频…）才会执行后面的函数；并且在一个页面中只能使用一次，后面再写会把前面的覆盖掉，因为它是DOM0事件绑定，所以只能绑定一次。<br>并且在jQuery中也提供了类似的方法 ：<strong>$(document).ready(function(){})—&gt;$(function(){})</strong>只要也拿中的HTML结构加载完成就会执行对应的函数；并且在一个页面中可以出现多次，因为jQuery在写这个方法的时候是使用DOM2级事件绑定来写的，并且绑定的行为是DOM2中的“DOMContentLoaded”这个行为来绑定的。</p>
+        <p>Ajax:async javascript and xml 叫做异步的JS和XML(可扩展标记语言)，它是一种客户端的JS方法，用来向服务器端发送请求(还可以传递给服务器数据)，然后把服务器端返回的内容获取到，它一般运行在客户端的浏览器中的。</p>
+<h2 id="Ajax的四个步骤"><a href="#Ajax的四个步骤" class="headerlink" title="Ajax的四个步骤"></a>Ajax的四个步骤</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1、var xhr=new XMLHttpRequest;   </div><div class="line">2、xhr.open(&quot;请求方式&quot;,&quot;请求资源的地址&quot;,&quot;同步还是一异步（同步用false，异步用true）&quot;,[username],[userpass]);  </div><div class="line">3、xhr.onreadyStatechange=function()&#123;if(xhr.readyState===4 &amp;&amp; /^2\d&#123;2&#125;.text(xhr.status))&#123;var val=xhr.responseText&#125;&#125;;  </div><div class="line">4、xhr.send(&quot;要传递给服务器的内容&quot;);</div></pre></td></tr></table></figure>
+<h2 id="1、第一步"><a href="#1、第一步" class="headerlink" title="1、第一步"></a>1、第一步</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">1、var xhr=new XMLHttpRequest;</div></pre></td></tr></table></figure>
+<p>创建一个AJAX对象（在IE6及更低版本的浏览器中不支持）</p>
+<h2 id="2、第二步"><a href="#2、第二步" class="headerlink" title="2、第二步"></a>2、第二步</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2、xhr.open(&quot;请求方式&quot;,&quot;请求资源的地址&quot;,&quot;同步还是一异步（同步用false，异步用true）&quot;,[username],[userpass]);</div></pre></td></tr></table></figure>
+<p>发送前的基本信息配置：配置请求方式(GET、POST、PUT、DELETE、HEAD),默认是异步,username:向服务器提供的用户名,userpass:向服务器提供的用户密码，这两个值一般都不写，只有服务器做了安全限制，只允许特定的用户访问，我们才传递过去。</p>
+<h2 id="3、第三步"><a href="#3、第三步" class="headerlink" title="3、第三步"></a>3、第三步</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">3、xhr.onreadyStatechange=function()&#123;if(xhr.readyState===4 &amp;&amp; /^2\d&#123;2&#125;.text(xhr.status))&#123;var val=xhr.responseText&#125;&#125;;</div></pre></td></tr></table></figure>
+<p>给<strong>onreadyStatechange</strong>这个事件绑定一个方法，监听状态的改变(只要状态改变，就会触发这个事件绑定的相应方法执行)；</p>
+<p><strong>xhr.readyState</strong>：AJAX状态码其中有5个值（0,1,2,3,4），可以代表当前AJAX处理的进度。</p>
+<blockquote>
+<pre><code>0：&quot;unset&quot;，表示当前的请求还没有发送；
+1：&quot;opened&quot;,表示URL地址已经打开(发送前的参数配置已经完成)；
+2：&quot;headers_received&quot;,表示响应头信息已经接收；
+3：&quot;loading&quot;,主要返回的内容正在服务器端进行准备处理；
+4：&quot;done&quot;:响应主体的内容已经成功返回客户端。
+</code></pre></blockquote>
+<p><strong>xhr.status</strong>:HTTP网络状态码，描述了服务器响应内容的状态，HTTP网络状态码有如下几种：</p>
+<blockquote>
+<pre><code>200 OR ^2\d{2}： (200或者以2开头的)都代表响应主体的内容已经成功返回了
+301：永久重定向/永久转移
+302：临时重定向/临时转移,服务器的负载均衡
+304：本次获取的内容是读取缓存中的数据
+400:客户端传递给服务器端的参数出现错误，客户端传递的参数有问题
+401：无权限访问
+404：访问的地址不存在
+500：未知的服务器错误
+503：服务器已经超负荷了，比如能承受10000人，那么第10001个人访问，如果没有做服务器的负载均衡（302），那么这个人的状态码就是503;
+</code></pre></blockquote>
+<h2 id="4、第四步"><a href="#4、第四步" class="headerlink" title="4、第四步"></a>4、第四步</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">4、xhr.send(&quot;要传递给服务器的内容&quot;);</div></pre></td></tr></table></figure>
+<p>发送请求：参数是请求主体中给传递给服务器的内容；只有执行完第四步之后才开始一个AJAX请求。</p>
 
       
     </div>
@@ -478,7 +505,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/27/fanzhanxiang/" rel="next" title="DOM0级事件绑定和DOM2级事件及其扩展">
+              <a href="/2017/10/27/DOM2级事件/" rel="next" title="DOM0级事件绑定和DOM2级事件及其扩展">
                 <i class="fa fa-chevron-left"></i> DOM0级事件绑定和DOM2级事件及其扩展
               </a>
             
@@ -569,8 +596,17 @@ var jiathis_config={
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -656,6 +692,22 @@ var jiathis_config={
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax的四个步骤"><span class="nav-number">1.</span> <span class="nav-text">Ajax的四个步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、第一步"><span class="nav-number">2.</span> <span class="nav-text">1、第一步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、第二步"><span class="nav-number">3.</span> <span class="nav-text">2、第二步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、第三步"><span class="nav-number">4.</span> <span class="nav-text">3、第三步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、第四步"><span class="nav-number">5.</span> <span class="nav-text">4、第四步</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

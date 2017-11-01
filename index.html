@@ -327,7 +327,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/31/ajax/" itemprop="url">ajax</a></h1>
+                <a class="post-title-link" href="/2017/10/31/ajax/" itemprop="url">Ajax</a></h1>
         
 
         <div class="post-meta">
@@ -379,7 +379,7 @@
 
           
           
-             <span id="/2017/10/31/ajax/" class="leancloud_visitors" data-flag-title="ajax">
+             <span id="/2017/10/31/ajax/" class="leancloud_visitors" data-flag-title="Ajax">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -412,7 +412,8 @@
       
         
           
-          ajax技术是一种常用的技术当我们使用DOM2级事件绑定，它的原理是让box通过原型链一直找到EventTarget这个内置类原型上的addEventListener方法实现的。DOM2级事件绑定解决了DOM0级事件绑定中“只能给元素的某一个行为绑定一次方法，第二次绑定会把前面的覆盖掉”这个问题，比
+          Ajax:async javascript and xml 叫做异步的JS和XML(可扩展标记语言)，它是一种客户端的JS方法，用来向服务器端发送请求(还可以传递给服务器数据)，然后把服务器端返回的内容获取到，它一般运行在客户端的浏览器中的。
+Ajax的四个步骤12341、var xhr=new X
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -467,7 +468,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/10/27/fanzhanxiang/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/10/27/DOM2级事件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="范占祥">
@@ -486,7 +487,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/27/fanzhanxiang/" itemprop="url">DOM0级事件绑定和DOM2级事件及其扩展</a></h1>
+                <a class="post-title-link" href="/2017/10/27/DOM2级事件/" itemprop="url">DOM0级事件绑定和DOM2级事件及其扩展</a></h1>
         
 
         <div class="post-meta">
@@ -538,7 +539,7 @@
 
           
           
-             <span id="/2017/10/27/fanzhanxiang/" class="leancloud_visitors" data-flag-title="DOM0级事件绑定和DOM2级事件及其扩展">
+             <span id="/2017/10/27/DOM2级事件/" class="leancloud_visitors" data-flag-title="DOM0级事件绑定和DOM2级事件及其扩展">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -570,15 +571,13 @@
 
       
         
-          <ul>
-<li><p>在页面上写一个id为box的一个div，然后设置一些它的宽度和高度，然后在后面在做事件绑定的时使用。先是使用DOM0级事件绑定。</p>
-<p><strong><em>box.onclick=function(){console.log(1)}</em></strong>;</p>
-<p><strong><em>box.onclick=funciton(){console.log(2)}</em></strong>;</p>
-</li>
-<li>后面这个事件会把前一个事件给覆盖掉，最后在控制台中只会输出一个2.因为在使用DOM0级事件绑定的时候，<strong>只能给元素的某一个行为绑定一次方法，第二次绑定会把前面的覆盖掉</strong>（这里主要是某一个行为绑定一次方法，不同的行为是可以绑定同一个方法的，比如这里是<strong>box.onmouseover=funciton(){console.log(2)}</strong>;这里是可以输出2的）；所以最后在控制台只能输出一次2。DOM0级事件绑定和DOM2级事件绑定最大的区别也是在这里，但是DOM2级事件中也有一些其他特别的地方。
+          <p> 在页面上写一个id为box的一个div，然后设置一些它的宽度和高度，然后在后面在做事件绑定的时使用。先是使用DOM0级事件绑定。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">box.onclick=function()&#123;console.log(1)&#125;;  </div><div class="line">box.onclick=function()&#123;console.log(2)&#125;;</div></pre></td></tr></table></figure>
+<p> 后面这个事件会把前一个事件给覆盖掉，最后在控制台中只会输出一个2.因为在使用DOM0级事件绑定的时候，<strong>只能给元素的某一个行为绑定一次方法，第二次绑定会把前面的覆盖掉</strong>（这里主要是某一个行为绑定一次方法，不同的行为是可以绑定同一个方法的，比如这里是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">box.onclick=function()&#123;console.log(2)&#125;;</div></pre></td></tr></table></figure></p>
+<p>这里是可以输出2的）；所以最后在控制台只能输出一次2。DOM0级事件绑定和DOM2级事件绑定最大的区别也是在这里，但是DOM2级事件中也有一些其他特别的地方。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/10/27/fanzhanxiang/#more" rel="contents">
+            <a class="btn" href="/2017/10/27/DOM2级事件/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -629,7 +628,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/10/15/New Document/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/10/15/博客小总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="范占祥">
@@ -648,7 +647,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/15/New Document/" itemprop="url">搭建个人博客的感受</a></h1>
+                <a class="post-title-link" href="/2017/10/15/博客小总结/" itemprop="url">搭建个人博客的感受</a></h1>
         
 
         <div class="post-meta">
@@ -700,7 +699,7 @@
 
           
           
-             <span id="/2017/10/15/New Document/" class="leancloud_visitors" data-flag-title="搭建个人博客的感受">
+             <span id="/2017/10/15/博客小总结/" class="leancloud_visitors" data-flag-title="搭建个人博客的感受">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -735,7 +734,7 @@
           <p>今天注册了一个hexo+GitHub的一个博客。下面的是一些自己一些的感受。改天有时间写一个详细版的教程关于建立个人博客的。虽然网上已经有很多了，但是自己还是有不少想要分享的地方，下面的是最简单的几点，也是自己写的第一篇博客。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/10/15/New Document/#more" rel="contents">
+            <a class="btn" href="/2017/10/15/博客小总结/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
