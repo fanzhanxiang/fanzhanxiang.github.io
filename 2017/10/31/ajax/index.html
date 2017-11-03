@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="fanzhanxiang&#39; Blog">
 <meta property="og:description" content="Ajax:async javascript and xml 叫做异步的JS和XML(可扩展标记语言)，它是一种客户端的JS方法，用来向服务器端发送请求(还可以传递给服务器数据)，然后把服务器端返回的内容获取到，它一般运行在客户端的浏览器中的。 Ajax的四个步骤">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-01T11:38:55.627Z">
+<meta property="og:updated_time" content="2017-11-01T11:41:54.367Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ajax">
 <meta name="twitter:description" content="Ajax:async javascript and xml 叫做异步的JS和XML(可扩展标记语言)，它是一种客户端的JS方法，用来向服务器端发送请求(还可以传递给服务器数据)，然后把服务器端返回的内容获取到，它一般运行在客户端的浏览器中的。 Ajax的四个步骤">
@@ -463,7 +463,7 @@ xhr.open(&quot;get&quot;,&quot;/getList?num =2&amp;_=&quot;+Math.random());在�
 </code></pre></blockquote>
 <h2 id="4、第四步"><a href="#4、第四步" class="headerlink" title="4、第四步"></a>4、第四步</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">4、xhr.send(&quot;要传递给服务器的内容&quot;);</div></pre></td></tr></table></figure>
 <p>发送请求：参数是请求主体中给传递给服务器的内容；只有执行完第四步之后才开始一个AJAX请求。</p>
-<p>##补充：AJAX中的同步和异步##<br><strong>AJAX中的同步</strong>：当AJAX任务开始的时候(XHR.SEND),一直需要到READYSTATE===4的时候任务才结束，此时才可以处理其它的事情。并且只有当其它的任务完成后，我们再看是否到4，到4之后做一些相关的操作。</p>
+<h2 id="补充：AJAX中的同步和异步"><a href="#补充：AJAX中的同步和异步" class="headerlink" title="补充：AJAX中的同步和异步"></a>补充：AJAX中的同步和异步</h2><p><strong>AJAX中的同步</strong>：当AJAX任务开始的时候(XHR.SEND),一直需要到READYSTATE===4的时候任务才结束，此时才可以处理其它的事情。并且只有当其它的任务完成后，我们再看是否到4，到4之后做一些相关的操作。</p>
 <p><strong>AJAX中的异步</strong>：当AJAX任务开始的时候(XHR.SEND),不需要到READYSTATE===4，我依然可以处理其它的事情。</p>
 <p><strong>下面是几个同步编程和异步编程的几个编程题</strong></p>
 <p>1、问：下面的会在控制台输出几次，输出的分别是什么？</p>
@@ -566,6 +566,10 @@ console.log(xhr.readyState);
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/03/JSONP/" rel="prev" title="JSONP">
+                JSONP <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -677,7 +681,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -688,7 +692,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -699,7 +703,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -754,7 +758,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax的四个步骤"><span class="nav-number">1.</span> <span class="nav-text">Ajax的四个步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、第一步"><span class="nav-number">2.</span> <span class="nav-text">1、第一步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、第二步"><span class="nav-number">3.</span> <span class="nav-text">2、第二步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、第三步"><span class="nav-number">4.</span> <span class="nav-text">3、第三步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、第四步"><span class="nav-number">5.</span> <span class="nav-text">4、第四步</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax的四个步骤"><span class="nav-number">1.</span> <span class="nav-text">Ajax的四个步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、第一步"><span class="nav-number">2.</span> <span class="nav-text">1、第一步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、第二步"><span class="nav-number">3.</span> <span class="nav-text">2、第二步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、第三步"><span class="nav-number">4.</span> <span class="nav-text">3、第三步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、第四步"><span class="nav-number">5.</span> <span class="nav-text">4、第四步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充：AJAX中的同步和异步"><span class="nav-number">6.</span> <span class="nav-text">补充：AJAX中的同步和异步</span></a></li></ol></div>
             
 
           </div>
