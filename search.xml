@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JavaScript数据类型检测的四种方式]]></title>
+    <url>%2F2017%2F11%2F04%2FJavaScript%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%98%AF%E5%9B%9B%E7%A7%8D%E6%96%B9%E5%BC%8F%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JavaScript中检测兼容的三种方式]]></title>
     <url>%2F2017%2F11%2F04%2FJS%E6%A3%80%E6%B5%8B%E5%85%BC%E5%AE%B9%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[一、使用try、catch来处理兼容前提：必须保证try中的代码在不兼容浏览器中执行的时候报错，这样的话我们才可以用catch捕获到异常的信息，进行其它的处理，示例代码如下面所示。缺点：不管是什么浏览器，都需要把try中的代码都需要把try中的代码执行一遍，如果当前是IE7。window.getComputedStyle本身是不兼容的，但是我们也要把它先执行一遍，报错了再把curEle.currentStyle执行一遍（消耗性能），因此使用try处理兼容只有在万不得已的情况下才使用它。 1234567891011 &lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt; function getCss(curEle,attr) &#123;//-&gt;curEle指的是操作的元素，attr指的是元素属性 var val=null; try&#123; val=window.getComputedStyle(curEle,null)[attr]; &#125;catch(e)&#123; val=curEle.currentStyle[attr]; &#125; return val; &#125;&lt;/script&gt; 二、判断当期浏览器中是否存在这个属性和方法判断当期浏览器中是否存在这个属性和方法，存在就兼容，不存在就不兼容。代码如下所示 1234567891011 &lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt; function getCss(curEle,attr) &#123; var val = null; if (getComputedStyle in window) &#123;//-&gt;如果返回结果是true，说明Window下有getComputedStyle，代表兼容 val = window.getComputedStyle(curEle, null)[attr]; &#125; else &#123; val = curEle.currentStyle[attr]; &#125; return val; &#125;&lt;/script&gt; 三、通过检测浏览器版本和类型来处理兼容代码如下所示： 1234567891011 &lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt; function getCss(curEle,attr) &#123; var val = null; if (/MSIE(6|7|8)/.test(navigator.userAgent)) &#123;//-&gt;说明是IE6-8浏览器 val = curEle.currentStyle[attr]; &#125; else &#123; val = window.getComputedStyle(curEle, null)[attr]; &#125; return val; &#125;&lt;/script&gt;]]></content>
@@ -19,8 +30,7 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
-        <tag>继承</tag>
+        <tag>Javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -31,8 +41,7 @@
         <category>JSONP</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
-        <tag>JSONP</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -43,8 +52,7 @@
         <category>Ajax</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
-        <tag>Ajax</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -52,7 +60,7 @@
     <url>%2F2017%2F10%2F27%2FDOM2%E7%BA%A7%E4%BA%8B%E4%BB%B6%2F</url>
     <content type="text"><![CDATA[在页面上写一个id为box的一个div，然后设置一些它的宽度和高度，然后在后面在做事件绑定的时使用。先是使用DOM0级事件绑定。 12box.onclick=function()&#123;console.log(1)&#125;; box.onclick=function()&#123;console.log(2)&#125;; 后面这个事件会把前一个事件给覆盖掉，最后在控制台中只会输出一个2.因为在使用DOM0级事件绑定的时候，只能给元素的某一个行为绑定一次方法，第二次绑定会把前面的覆盖掉（这里主要是某一个行为绑定一次方法，不同的行为是可以绑定同一个方法的，比如这里是1box.onclick=function()&#123;console.log(2)&#125;; 这里是可以输出2的）；所以最后在控制台只能输出一次2。DOM0级事件绑定和DOM2级事件绑定最大的区别也是在这里，但是DOM2级事件中也有一些其他特别的地方。 1、基础；当我们使用DOM2级事件绑定，它的原理是让box通过原型链一直找到EventTarget这个内置类原型上的addEventListener方法实现的。DOM2级事件绑定解决了DOM0级事件绑定中“只能给元素的某一个行为绑定一次方法，第二次绑定会把前面的覆盖掉”这个问题，比如下面代码 12box.addEventListener(&quot;click&quot;,function()&#123;console.log(1)&#125;,false); box.addEventListener(&quot;click&quot;,function()&#123;console.log(1)&#125;,false); 点击box的时候，控制台上输出了1和2，方法中的第三个参数false表示的是该事件在冒泡阶段触发。总结出DOM2级事件可以给某一个元素的同一个行为绑定多个不同的方法。 2、DOM2； DOMO中行为类型，我们用DOM2一样可以绑定；而且DOM2中还提供了DOM0中没有的行为类型，比如DOM2中有一个行为DOMContentLoaded（当页面中的DOM结构或者是叫HTML结构加载完成触发的行为）这个行为是DOM0中没有的。像这个事件的绑定是这样的。 12document.addEventListener(&quot;DOMContentLoaded&quot;,function()&#123;&#125;,false) ; window.onload=function()&#123;&#125;; 上面的两个事件绑定是有区别的，这个代表的意思是当页面中所有的资源都加载完成（图片、HTML结构、音视频…）才会执行后面的函数；并且在一个页面中只能使用一次，后面再写会把前面的覆盖掉，因为它是DOM0事件绑定，所以只能绑定一次。并且在jQuery中也提供了类似的方法 ： 1$(document).ready(function()&#123;&#125;)---&gt;$(function()&#123;&#125;); 只要也拿中的HTML结构加载完成就会执行对应的函数；并且在一个页面中可以出现多次，因为jQuery在写这个方法的时候是使用DOM2级事件绑定来写的，并且绑定的行为是DOM2中的“DOMContentLoaded”这个行为来绑定的。 3、移除DOM2事件绑定：前面两行代码中，里面的this是box，这里并不能移除事件绑定，因为两个匿名函数是两个不同的堆内存，因此不能移除事件绑定；把匿名函数换成实名函数就可以了，比如后面两行代码： 1234box.addEventListener(&quot;click&quot;,function(e)&#123;console.log(this)&#125;,false); box.removeEventListener(&quot;click&quot;,function(e)&#123;console.log(this)&#125;,false)； function fn1()&#123;console.log(this)&#125;； box.removeEventListener(&quot;click&quot;,fn1,false)； 这里就可以实现移除了，并且在控制台中不会输出任何东西，因为在刚绑定的时候就已经移除了。移除的时候需要保证三个参数：行为、方法、那个阶段发生，一个都不能差，因为在使用DOM2事件绑定的时候，我们一般绑定的都是实名函数，如果这样：1box.removeEventListener(&quot;click&quot;,fn1,true)； 就移除掉了，还会输出this； 4、注意点只能给某个元素的同一个行为绑定多个“不同”的方法（如果方法相同了，只能留一个），例如： 123function fn1()&#123;console.log(1)&#125;； box.removeEventListener (&quot;click&quot;,fn1,false)； box.removeEventListener(&quot;click&quot;,fn1,false)； 在点击的时候只会输出一个1。当行为触发，会按照绑定的先后顺序依次把绑定的方法执行；执行的方法中的this是当前被绑定事件的本身。并且在绑定方法的时候，浏览器天生自带的一个东西叫事件池（也有叫程序池的），用来存储绑定的事件的。 但是在IE6~8浏览器中不支持addEventListener/removeEventListener,如果想要实现DOM2级事件绑定只能用attachEvent,移除是使用detachEvent。 box.attachEvent(“onclick”,fn1); 并且它只有两个参数，不能向addEventListener那样控制在那个阶段发生，只能在冒泡阶段发生，行为需要添加”on”,和DOM0特别类似]]></content>
       <categories>
-        <category>javaScript</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
         <tag>javascript</tag>
