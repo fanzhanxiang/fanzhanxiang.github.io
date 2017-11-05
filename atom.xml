@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/"/>
-  <updated>2017-11-05T02:45:03.810Z</updated>
+  <updated>2017-11-05T08:12:30.060Z</updated>
   <id>https://github.com/fanzhanxiang/fanzhanxiang.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>本地存储</title>
+    <link href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/05/%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8/"/>
+    <id>https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/05/本地存储/</id>
+    <published>2017-11-05T08:05:46.393Z</published>
+    <updated>2017-11-05T08:12:30.060Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>JS中的本地存储:</strong></p><p>使用JS向浏览器向浏览器某一个位置中存储一些内容，浏览器即使关闭了，存储了信息也不会销毁，当在重新打开浏览器的时候我们依然可以获取到上一次存储的信息。<br><a id="more"></a></p><h2 id="一、本地存储的方案"><a href="#一、本地存储的方案" class="headerlink" title="一、本地存储的方案"></a>一、本地存储的方案</h2><p><strong>传统:</strong></p><blockquote><pre><code>1、cookie:把信息存储到客户端的浏览器中（但是项目服务器端也是可以获取COOKIE的）2、session:把信息存储到服务器上的（服务器存储）</code></pre></blockquote><p><strong>HTML5:webStorage</strong></p><blockquote><pre><code>1、localStorage:永久存储到客户端本地2、sessionStorage:信息会话存储，回话窗口存在信息也存在，会话窗口关闭信息也消失了</code></pre></blockquote><p>打开谷歌控制台，按F12可以Application中可以看到这些相应的窗口:如图所示<br><img src="http://oyh928sxz.bkt.clouddn.com/%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8.png" alt=""></p><h2 id="COOKIE-localStorage-sessionStorage三者之间的用法以及区别"><a href="#COOKIE-localStorage-sessionStorage三者之间的用法以及区别" class="headerlink" title="COOKIE localStorage sessionStorage三者之间的用法以及区别"></a>COOKIE localStorage sessionStorage三者之间的用法以及区别</h2><p><strong>webStorage</strong></p><p>localStorage和sessionStorage的用法是一样的：<br>setItem([key],[value]):向客户端的本地存储一条记录，存储的[value]值需要使字符串格式的，如果编写的不是字符串，浏览器也会默认转化为字符串然后进行存储;存储的[key]是不会重复的，如果之前有的话，把存储的信息值重新进行修改；</p><blockquote><pre><code>1、getItem([key]):获取之前存储的值2、removeItem([key]):移除key对应的那条记录3、clear():把当前源下所有的存储记录都移除掉4、localStorage.length:获取存储的记录条数5、localStorage.key(0):获取索引为0这一项的key是什么</code></pre></blockquote><p>用代码表示为:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">console.log(localStorage.getItem(&apos;age&apos;));//-&gt;&quot;7&quot;   </div><div class="line">localStorage.setItem(&apos;age&apos;,JSON.stringify(&#123;name:&apos;abc&apos;&#125;));   </div><div class="line">console.log(localStorage.getItem(&apos;age&apos;));//-&gt;&quot;&#123;&quot;name&quot;:&quot;abc&quot;&#125;&quot;  </div><div class="line">localStorage.removeItem(&apos;age&apos;);  </div><div class="line">localStorage.clear();  </div><div class="line">console.log(localStorage.length);//-&gt;0  </div><div class="line">console.log(localStorage.key(0));//-&gt;&apos;null&apos;</div></pre></td></tr></table></figure><p>下面是执行下面这段代码之后存储在控制台里面看到的效果:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(localStorage.getItem(&apos;age&apos;));//-&gt;&quot;7&quot;</div></pre></td></tr></table></figure><p><img src="http://oyh928sxz.bkt.clouddn.com/%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A81.png" alt=""></p><p><strong>localStorage和sessionStorage的区别:</strong></p><blockquote><pre><code>1、localStorage属于永久存储到本地，不管是刷新页面还是关掉页面或者关掉浏览器，存储的内容都不会消失，只有我们手动删除才会消失（不管是杀毒软件还是浏览器自带的清除历史记录的功能都不能把localStorage存储的内容移除掉）;  2、sessionStorage属于临时会话存储，只要当前的页面不关闭，信息就可以存储下来，但是页面一旦关闭,存储的信息就会自动关闭（F5刷新只是把当前的DOM机构等进行重新渲染，会话并没有关闭）</code></pre></blockquote><p><strong>cookie</strong></p><p>cookie和locaStorage的区别:</p><blockquote><pre><code>1、cookie兼容所有浏览器，但是localStorage不兼容IE6-82、cookie存储内容的大小是有限制的，一般同源下只能存储4KB内容;localStorage存储的内容大小也有限制，一般同源下只能存储5MB;3、cookie存储的内容是有过期时间的，而localStorage是永久存储到本地，使用杀毒软件或者清除垃圾的功能都可能把存储的cookie给删除掉4、用户可能出于安全的角度禁用cookie(无痕浏览)，但是不能禁用localStorage.</code></pre></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;JS中的本地存储:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;使用JS向浏览器向浏览器某一个位置中存储一些内容，浏览器即使关闭了，存储了信息也不会销毁，当在重新打开浏览器的时候我们依然可以获取到上一次存储的信息。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://github.com/fanzhanxiang/fanzhanxiang.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="https://github.com/fanzhanxiang/fanzhanxiang.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>数组的forEach和map方法解读</title>
