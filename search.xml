@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[JavaScript数据类型检测的四种方式]]></title>
-    <url>%2F2017%2F11%2F04%2FJavaScript%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%98%AF%E5%9B%9B%E7%A7%8D%E6%96%B9%E5%BC%8F%2F</url>
-    <content type="text"></content>
+    <title><![CDATA[JavaScript的同步和异步编程]]></title>
+    <url>%2F2017%2F11%2F05%2FJS%E7%9A%84%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[JS中的两种编程思想：同步、异步。 同步同步编程:上一件事情没有完成，继续做上一件事情，只有上一件事情完成了，才会做下一件事情(JS大部分都是同步编程的)。如下面代码：（1）、（2）分别代表第一次和第二次输出。 12345678&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt; for(var i=0;i&lt;100000;i++)&#123; if(i===99999)&#123; console.log(&quot;循环结束了~~&quot;)//-&gt;(1) &#125; &#125; console.log(&quot;ok&quot;);//-&gt;(2)&lt;/script&gt; 原因:for循环就是同步编程的，只有循环结束后，才会执行下面的代码,因此会先输出前面的，再输出后面的。 再比如下面这段代码: 123456&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt; while (1)&#123; &#125; console.log(&quot;ok&quot;);//-&gt;不会有结果输出，并且浏览器还会崩溃&lt;/script&gt; 原因:因为上面的循环是死循环，循环永远不会结束,JS不会跳过上面那段循环来执行下面的循环。 异步解读：首先规划要做一件事情，但是不是立马去执行这件事情，需要等一定的时间，这样的话我们不会继续等着它执行，而是继续执行下面的操作，”只有下面的事情都处理完成了”.只有当下面的事情都处理完成了，才会返回头处理之前的事情；如果下面的事情没有处理完成，不管之前的事情有没有处理完成，都踏踏实实的给我等着。在JS中异步编程只有四种情况：定时器都是异步编程的、所有事件绑定都是异步编程的、AJAX读取数据的时候，我们一般设定为异步编程、回调函数也是异步编程的。 比如下面这段代码: 12345678&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt; var n=0; window.setTimeout(function()&#123; n++; console.log(n);//-&gt;1(2) &#125;,1000); console.log(n);//-&gt;0(1)&lt;/script&gt; 原因:定时器是异步编程的，在1000ms之后再执行定时器中的方法，因此会先输出0，再输出1。 关于浏览器的最小等待事件问题 比如下面的这段代码： 12345678&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt; var n=0; window.setTimeout(function()&#123; n++; console.log(n);//-&gt;1(2) &#125;,0); console.log(n);//-&gt;0(1)&lt;/script&gt; 原因:每一个浏览器对于定时器的等待时间都有一个最小值：谷歌大概:5~6ms,IE大概:13~14ms,如果设置的等待时间小于这个值，不起作用，还是需要等到最小时间才执行；尤其是写0也不是立即执行； 定时器设置的等待时间不一定就是最后执行的时间 看下面的这段代码： 12345678910111213&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt; var n=0; window.setTimeout(function()&#123; n++; console.log(n);//-&gt;不执行 &#125;,0); console.log(n);//-&gt;0(1) while (1)&#123; n++;//-&gt;死循环 &#125; console.log(n);//-&gt;不执行&lt;/script&gt; 原因:执行到while的时候出现了死循环，因此定时器里面的方法永远不会执行。 定时器是谁先到先执行谁 如下面这段代码： 12345678910111213141516&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt; var n=0; window.setTimeout(function()&#123; n+=2; console.log(n);//-&gt;7(4) &#125;,20); window.setTimeout(function()&#123; n+=5; console.log(n);//-&gt;5(3) &#125;,5); console.log(n);//-&gt;0(1) for(var i=0;i&lt;10000000;i++)&#123; &#125; console.log(n);//-&gt;0(2)&lt;/script&gt; 原因：JS在执行的时候会有一个类似于设置闹钟的那种机制的任务队列，不是之前设置的闹钟就之前叫，而是不管是什么时候设置的，谁的时间先到了就谁先叫。如图所示。 上面仅仅是讲了定时器这一种异步编程思想，所有事件绑定、AJAX读取数据的时候、回调函数这几 种的原理也和定时器的一样]]></content>
       <categories>
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>Javascript</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JavaScript数据类型检测的四种方式]]></title>
+    <url>%2F2017%2F11%2F04%2FJavaScript%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%98%AF%E5%9B%9B%E7%A7%8D%E6%96%B9%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[一、typeof 用来检测数据类型的运算符使用typeof检测数据类型，首先返回的都是一个字符串，其次字符串包含了对应的数据类型，例如:’number’、’string’、’boolean’、’undefined’、’function’、’object’。局限性： 1typeof null-&gt;&quot;object&quot; 不能具体细分是数组还是正则，还是对象中其他的值，因为使用typeof检测数据类型，对于对象数据类型中的左右的值，最后返回的结果都是”object” 二、instanceof 检测某一个实例是否属于这个类优点：它可以用来检测是数组还是正则了。局限性：对于基本数据类型来说，字面量方式创建出来的结果和实例方式创建出来的结果是有一定的区别的，从严格意义上来讲，只有实例创建出来的结果才是标准的对象数据类型值，也是标准的Number这类的实例，对于字面量创建出来的结果是基本的数据类型值，不是严谨的实例，但是由于JS的松散型，导致了可以使用JS原型上的方法。如下面的代码。 12345678910console.log(1 instanceof Number);//-&gt;控制台输出false console.log(new Number(1) instanceof Number);//-&gt;控制台输出true var ary=[]; function fn() &#123; &#125; console.log(ary instanceof Array)//-&gt;控制台输出true console.log(ary instanceof Object)//-&gt;控制台输出true console.log(fn instanceof Function)//-&gt;控制台输出true console.log(ary instanceof Object)//-&gt;控制台输出true 因此，它会产生以下影响： 1、不能用来检测和处理字面量方式创建出来的基本数据类型值。 2、instanceof的特性：只要在当前实例的原型链上，我们用其检测出来的结果都是true。 3、在类的原型继承中，我们最后检测出来的结果未必准确。只要它的原型链上有这个类，最后用这 方法检测出来的结果都是true。 三、constructor: 构造函数 作用和instanceof非常相似有如下代码：123456var obj=[],num=1，reg=/^$/; console.log(obj.constructor===Array);//-&gt;true console.log(obj.constructor===RegExp);//-&gt;false console.log(num.constructor===Number);//-&gt;true console.log(reg.constructor===RegExp);//-&gt;true console.log(reg.constructor===Object);//-&gt;false 优点:可以看出和instanceof相比，constructor可以处理基本数据类型的检测。不同:constructor和instanceof不一样的地方在于，constructor在检测的时候先在私有属性上找，找到之后就不会往后面找了，所以在用来检测Object的时候，一般情况下是检测不了的。局限性：我们可以把类的原型进行重写，在进行的重写过程中，很有可能之前contructor给覆盖掉了，这样检测出来的结果就是不准确的。 扩展：对于特殊的数据类型null和undefined,他们的所属类是Null和Undefined,但是浏览 器把这两个类保护起来了，不允许我们在外面访问使用。 四、Object.prototype.toString.call()这是最准确检测数据类型的方法； 解读：首先获取Object原型上toString方法，让方法执行，并且改变方法中的this关键字的指向。先看一下面的代码。 123456console.log((1).toString());//-&gt;Number.prototype.toString(),转化为字符串 &quot;1&quot;console.log((128).toString(2/8/10));-&gt;把数字转化为二进制/八进制/十进制，Number原型上的toString方法支持把数字转化为相的进制。 console.log((1).__proto__.__proto__.toString());//-&gt;&quot;[object Object]&quot; console.log(&quot;zhufeng&quot;.toString());//-&gt;也是转为为字符串，但是不支持进制 console.log(&#123;&quot;name&quot;: &quot;abc&quot;&#125;.toString());//-&gt;&quot;[object Object]&quot; console.log(Math.toString())//-&gt;&quot;[object Math]&quot; 通常情况下对toString的理解： 对于Number、String、Boolean、Array、RegExp、Date、Function原型上的toString()方法都 是把当前的数据类型转换为字符串类型（他们的作用仅仅是用来转换为字符串 Object.prototype.toString并不是用来转换为字符串的。 Object.prototype.toString它的作用是返回当前方法的执行主体（方法中this）所属类的详 细信息。var obj={name:&quot;xyz&quot;};//-&gt;&quot;[object Object]&quot; console.log(obj.toString());//-&gt;toString中的this是obj,返回的是obj所属类的信 息-&quot;[object Object]&quot;第一个object代表当前实例是对象数据类型的(这个是固定)，第二个 Object,代表的是obj是object这个类的一个实例。 1234567891011var ary=[]; console.log(Object.prototype.toString.call(ary));//-&gt;&quot;[object Array]&quot;; console.log(Object.prototype.toString.call(/^$/));//-&gt;&quot;[object RegExp]&quot;; console.log((&#123;&#125;).toString.call(1));//-&gt;&quot;[object Number]&quot;; console.log((&#123;&#125;).toString.call(&quot;dsas&quot;));//-&gt;&quot;[object String]&quot;; console.log((&#123;&#125;).toString.call(true));//-&gt;&quot;[object Boolean]&quot;; console.log((&#123;&#125;).toString.call(null));//-&gt;&quot;[object Null]&quot;; console.log((&#123;&#125;).toString.call(undefined));//-&gt;&quot;[object Undefined]&quot;; console.log((&#123;&#125;).toString.call(function () &#123;&#125;));//-&gt;&quot;[object Function]&quot;; console.log((&#123;&#125;).toString.call(new Date));//-&gt;&quot;[object Date]&quot;; console.log((1).toString());//-&gt;Number.prototype.toString(),转化为字符串 &quot;1&quot; 从上面代码可以总结春：Object.prototype.toString并不是用来转换为字符串的，返回的是 obj所属类的信息息-&quot;[object &quot;参数2&quot;]&quot;第一个object代表当前实例是对象数据类型的(这个 是固定)，第二个参数，“参数2”,代表的是检测的这个所属的类。]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -30,7 +41,7 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>Javascript</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -63,7 +74,7 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>

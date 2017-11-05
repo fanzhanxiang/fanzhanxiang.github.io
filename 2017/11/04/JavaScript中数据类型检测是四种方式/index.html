@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Javascript," />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="2194482952@qq.com">
-<meta name="keywords" content="Javascript">
+<meta name="description" content="一、typeof 用来检测数据类型的运算符使用typeof检测数据类型，首先返回的都是一个字符串，其次字符串包含了对应的数据类型，例">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript数据类型检测的四种方式">
 <meta property="og:url" content="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/04/JavaScript中数据类型检测是四种方式/index.html">
 <meta property="og:site_name" content="fanzhanxiang&#39; Blog">
-<meta property="og:description" content="2194482952@qq.com">
+<meta property="og:description" content="一、typeof 用来检测数据类型的运算符使用typeof检测数据类型，首先返回的都是一个字符串，其次字符串包含了对应的数据类型，例">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-04T12:09:27.671Z">
+<meta property="og:updated_time" content="2017-11-05T01:02:17.355Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript数据类型检测的四种方式">
-<meta name="twitter:description" content="2194482952@qq.com">
+<meta name="twitter:description" content="一、typeof 用来检测数据类型的运算符使用typeof检测数据类型，首先返回的都是一个字符串，其次字符串包含了对应的数据类型，例">
 
 
 
@@ -414,7 +414,45 @@
       
 
       
-        
+        <h2 id="一、typeof-用来检测数据类型的运算符"><a href="#一、typeof-用来检测数据类型的运算符" class="headerlink" title="一、typeof 用来检测数据类型的运算符"></a>一、typeof 用来检测数据类型的运算符</h2><p>使用typeof检测数据类型，首先返回的都是一个字符串，其次字符串包含了对应的数据类型，例<br><a id="more"></a><br>如:’number’、’string’、’boolean’、’undefined’、’function’、’object’。<br><strong>局限性</strong>：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">typeof null-&gt;&quot;object&quot;</div></pre></td></tr></table></figure>
+<p>不能具体细分是数组还是正则，还是对象中其他的值，因为使用typeof检测数据类型，对于对象数据类型中的左右的值，最后返回的结果都是”object”</p>
+<h2 id="二、instanceof-检测某一个实例是否属于这个类"><a href="#二、instanceof-检测某一个实例是否属于这个类" class="headerlink" title="二、instanceof 检测某一个实例是否属于这个类"></a>二、instanceof 检测某一个实例是否属于这个类</h2><p>优点：它可以用来检测是数组还是正则了。<br>局限性：对于基本数据类型来说，字面量方式创建出来的结果和实例方式创建出来的结果是有一定的区别的，从严格意义上来讲，只有实例创建出来的结果才是标准的对象数据类型值，也是标准的Number这类的实例，对于字面量创建出来的结果是基本的数据类型值，不是严谨的实例，但是由于JS的松散型，导致了可以使用JS原型上的方法。如下面的代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">console.log(1 instanceof Number);//-&gt;控制台输出false     </div><div class="line">console.log(new Number(1) instanceof Number);//-&gt;控制台输出true  </div><div class="line"> var ary=[];  </div><div class="line">   function fn() &#123;</div><div class="line">       </div><div class="line">   &#125;  </div><div class="line">   console.log(ary instanceof Array)//-&gt;控制台输出true  </div><div class="line">   console.log(ary instanceof Object)//-&gt;控制台输出true  </div><div class="line">   console.log(fn instanceof Function)//-&gt;控制台输出true  </div><div class="line">   console.log(ary instanceof Object)//-&gt;控制台输出true</div></pre></td></tr></table></figure>
+<p>因此，它会产生以下影响：</p>
+<blockquote>
+<pre><code>1、不能用来检测和处理字面量方式创建出来的基本数据类型值。
+2、instanceof的特性：只要在当前实例的原型链上，我们用其检测出来的结果都是true。
+3、在类的原型继承中，我们最后检测出来的结果未必准确。只要它的原型链上有这个类，最后用这
+方法检测出来的结果都是true。
+</code></pre></blockquote>
+<h2 id="三、constructor-构造函数-作用和instanceof非常相似"><a href="#三、constructor-构造函数-作用和instanceof非常相似" class="headerlink" title="三、constructor: 构造函数 作用和instanceof非常相似"></a>三、constructor: 构造函数 作用和instanceof非常相似</h2><p>有如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var obj=[],num=1，reg=/^$/;   </div><div class="line">console.log(obj.constructor===Array);//-&gt;true  </div><div class="line">console.log(obj.constructor===RegExp);//-&gt;false  </div><div class="line">console.log(num.constructor===Number);//-&gt;true  </div><div class="line">console.log(reg.constructor===RegExp);//-&gt;true  </div><div class="line">console.log(reg.constructor===Object);//-&gt;false</div></pre></td></tr></table></figure></p>
+<p>优点:可以看出和instanceof相比，constructor可以处理基本数据类型的检测。<br>不同:constructor和instanceof不一样的地方在于，constructor在检测的时候先在私有属性上找，找到之后就不会往后面找了，所以在用来检测Object的时候，一般情况下是检测不了的。<br>局限性：我们可以把类的原型进行重写，在进行的重写过程中，很有可能之前contructor给覆盖掉了，这样检测出来的结果就是不准确的。</p>
+<blockquote>
+<pre><code>扩展：对于特殊的数据类型null和undefined,他们的所属类是Null和Undefined,但是浏览
+器把这两个类保护起来了，不允许我们在外面访问使用。
+</code></pre></blockquote>
+<h2 id="四、Object-prototype-toString-call"><a href="#四、Object-prototype-toString-call" class="headerlink" title="四、Object.prototype.toString.call()"></a>四、Object.prototype.toString.call()</h2><p>这是最准确检测数据类型的方法；</p>
+<p>解读：首先获取Object原型上toString方法，让方法执行，并且改变方法中的this关键字的指向。先看一下面的代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">console.log((1).toString());//-&gt;Number.prototype.toString(),转化为字符串 &quot;1&quot;</div><div class="line">console.log((128).toString(2/8/10));-&gt;把数字转化为二进制/八进制/十进制，Number原型上的toString方法支持把数字转化为相的进制。  </div><div class="line">console.log((1).__proto__.__proto__.toString());//-&gt;&quot;[object Object]&quot;  </div><div class="line">console.log(&quot;zhufeng&quot;.toString());//-&gt;也是转为为字符串，但是不支持进制  </div><div class="line">console.log(&#123;&quot;name&quot;: &quot;abc&quot;&#125;.toString());//-&gt;&quot;[object Object]&quot;  </div><div class="line">console.log(Math.toString())//-&gt;&quot;[object Math]&quot;</div></pre></td></tr></table></figure>
+<p>通常情况下对toString的理解：</p>
+<blockquote>
+<pre><code>对于Number、String、Boolean、Array、RegExp、Date、Function原型上的toString()方法都
+是把当前的数据类型转换为字符串类型（他们的作用仅仅是用来转换为字符串
+Object.prototype.toString并不是用来转换为字符串的。
+Object.prototype.toString它的作用是返回当前方法的执行主体（方法中this）所属类的详
+细信息。var obj={name:&quot;xyz&quot;};//-&gt;&quot;[object Object]&quot;
+console.log(obj.toString());//-&gt;toString中的this是obj,返回的是obj所属类的信
+息-&quot;[object Object]&quot;第一个object代表当前实例是对象数据类型的(这个是固定)，第二个
+Object,代表的是obj是object这个类的一个实例。
+</code></pre></blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var ary=[];   </div><div class="line"> console.log(Object.prototype.toString.call(ary));//-&gt;&quot;[object Array]&quot;;   </div><div class="line"> console.log(Object.prototype.toString.call(/^$/));//-&gt;&quot;[object RegExp]&quot;;  </div><div class="line"> console.log((&#123;&#125;).toString.call(1));//-&gt;&quot;[object Number]&quot;;  </div><div class="line"> console.log((&#123;&#125;).toString.call(&quot;dsas&quot;));//-&gt;&quot;[object String]&quot;;  </div><div class="line"> console.log((&#123;&#125;).toString.call(true));//-&gt;&quot;[object Boolean]&quot;;  </div><div class="line"> console.log((&#123;&#125;).toString.call(null));//-&gt;&quot;[object Null]&quot;;  </div><div class="line"> console.log((&#123;&#125;).toString.call(undefined));//-&gt;&quot;[object Undefined]&quot;;  </div><div class="line"> console.log((&#123;&#125;).toString.call(function () &#123;&#125;));//-&gt;&quot;[object Function]&quot;;  </div><div class="line"> console.log((&#123;&#125;).toString.call(new Date));//-&gt;&quot;[object Date]&quot;;  </div><div class="line"> console.log((1).toString());//-&gt;Number.prototype.toString(),转化为字符串 &quot;1&quot;</div></pre></td></tr></table></figure>
+<blockquote>
+<pre><code>从上面代码可以总结春：Object.prototype.toString并不是用来转换为字符串的，返回的是
+obj所属类的信息息-&quot;[object &quot;参数2&quot;]&quot;第一个object代表当前实例是对象数据类型的(这个
+是固定)，第二个参数，“参数2”,代表的是检测的这个所属的类。
+</code></pre></blockquote>
+
       
     </div>
     
@@ -460,7 +498,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Javascript/" rel="tag"># Javascript</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -482,6 +520,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/05/JS的同步和异步编程/" rel="prev" title="JavaScript的同步和异步编程">
+                JavaScript的同步和异步编程 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -564,8 +606,17 @@ var jiathis_config={
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -584,7 +635,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -606,7 +657,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -651,6 +702,22 @@ var jiathis_config={
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、typeof-用来检测数据类型的运算符"><span class="nav-number">1.</span> <span class="nav-text">一、typeof 用来检测数据类型的运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、instanceof-检测某一个实例是否属于这个类"><span class="nav-number">2.</span> <span class="nav-text">二、instanceof 检测某一个实例是否属于这个类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、constructor-构造函数-作用和instanceof非常相似"><span class="nav-number">3.</span> <span class="nav-text">三、constructor: 构造函数 作用和instanceof非常相似</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、Object-prototype-toString-call"><span class="nav-number">4.</span> <span class="nav-text">四、Object.prototype.toString.call()</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
