@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="js¡¢node.js" />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -81,17 +81,21 @@
 
 
 
-<meta name="description" content="今天注册了一个hexo+GitHub的一个博客。下面的是一些自己一些的感受。改天有时间写一个详细版的教程关于建立个人博客的。虽然网上已经有很多了，但是自己还是有不少想要分享的地方，下面的是最简单的几点，也是自己写的第一篇博客。">
+<meta name="description" content="forEach和map方法都是用来遍历数组中的每一项的;">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建个人博客的感受">
-<meta property="og:url" content="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/10/15/博客小总结/index.html">
+<meta property="og:title" content="数组的forEach和map方法解读">
+<meta property="og:url" content="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/05/forEach和map方法解读/index.html">
 <meta property="og:site_name" content="fanzhanxiang&#39; Blog">
-<meta property="og:description" content="今天注册了一个hexo+GitHub的一个博客。下面的是一些自己一些的感受。改天有时间写一个详细版的教程关于建立个人博客的。虽然网上已经有很多了，但是自己还是有不少想要分享的地方，下面的是最简单的几点，也是自己写的第一篇博客。">
+<meta property="og:description" content="forEach和map方法都是用来遍历数组中的每一项的;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-31T12:49:39.024Z">
+<meta property="og:image" content="http://oyh928sxz.bkt.clouddn.com/forEach.png">
+<meta property="og:image" content="http://oyh928sxz.bkt.clouddn.com/map%E6%88%96forEach%E4%B8%AD%E7%9A%84this%E9%97%AE%E9%A2%98.png">
+<meta property="og:updated_time" content="2017-11-05T02:45:03.810Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="搭建个人博客的感受">
-<meta name="twitter:description" content="今天注册了一个hexo+GitHub的一个博客。下面的是一些自己一些的感受。改天有时间写一个详细版的教程关于建立个人博客的。虽然网上已经有很多了，但是自己还是有不少想要分享的地方，下面的是最简单的几点，也是自己写的第一篇博客。">
+<meta name="twitter:title" content="数组的forEach和map方法解读">
+<meta name="twitter:description" content="forEach和map方法都是用来遍历数组中的每一项的;">
+<meta name="twitter:image" content="http://oyh928sxz.bkt.clouddn.com/forEach.png">
 
 
 
@@ -121,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/10/15/博客小总结/"/>
+  <link rel="canonical" href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/05/forEach和map方法解读/"/>
 
 
 
 
 
-  <title>搭建个人博客的感受 | fanzhanxiang' Blog</title>
+  <title>数组的forEach和map方法解读 | fanzhanxiang' Blog</title>
   
 
 
@@ -308,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/10/15/博客小总结/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/05/forEach和map方法解读/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="范占祥">
@@ -325,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">搭建个人博客的感受</h1>
+          <h1 class="post-title" itemprop="name headline">数组的forEach和map方法解读</h1>
         
 
         <div class="post-meta">
@@ -337,8 +341,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-15T19:00:43+08:00">
-                2017-10-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-05T10:45:03+08:00">
+                2017-11-05
               </time>
             
 
@@ -360,8 +364,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -377,7 +381,7 @@
 
           
           
-             <span id="/2017/10/15/博客小总结/" class="leancloud_visitors" data-flag-title="搭建个人博客的感受">
+             <span id="/2017/11/05/forEach和map方法解读/" class="leancloud_visitors" data-flag-title="数组的forEach和map方法解读">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -413,17 +417,29 @@
       
 
       
-        <p>今天注册了一个hexo+GitHub的一个博客。下面的是一些自己一些的感受。改天有时间写一个详细版的教程关于建立个人博客的。虽然网上已经有很多了，但是自己还是有不少想要分享的地方，下面的是最简单的几点，也是自己写的第一篇博客。</p>
-<a id="more"></a>
-<ul>
-<li><p>1、<strong>_config</strong>的语法非常严谨、当你要用里面的语法的时候首先需要做的一件事情把对应地方的#去掉，如果不把你想要设置的对应的地方的#去掉，当你在执行hexo g的时候会报或者是 你设置的这个地方对应的效果没有效果。</p>
-</li>
-<li><p>2、<strong>_config</strong>在设置的时候，”：“后面必须一个空格，这也是因为_config的语法比较严谨的原因</p>
-</li>
-<li><p>3、<strong>GitHub</strong>有缓存时间，这是一个比较令人头疼的问题，自己在_config设置完所有的参数之后，然后执行hexo g、hexo d.然后是过了几分钟之后自己打开了自己博客，发现竟然返回了404页面，当时也是比较懵逼的，然后就一直谷歌上面各种找原因。看到一个人回答说是GitHub的缓存原因。这才放心，后面等了一会儿之后设置的东西相应的显示出来了。</p>
-</li>
-</ul>
-<p>总结：总的来说大体常见的问题就是这些。在打扮博客的过程中肯定会碰到各种各样的问题，抽时间来一个大总结。</p>
+        <p>forEach和map方法都是用来遍历数组中的每一项的;<br><a id="more"></a></p>
+<h2 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h2><blockquote>
+<pre><code>1、数组中有几项，那我们传递进去的匿名函数就需要执行几次
+2、每一次执行匿名函数的时候，还给其浏览器给其默认传递了三个参数值：数组中的当前项 
+item，当前项的索引index，原始数组input。
+3、理论上我们的方法是没有返回值的，仅仅遍历数组中的每一项不对原来的数据进行修改，但是
+我们可以通过数组的索引来修改原来的数组。
+</code></pre></blockquote>
+<p>执行下面代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt;  </div><div class="line">    var ary=[12,23,34,45,43];</div><div class="line">    var res=ary.forEach(function (item,index,input) &#123;</div><div class="line">        console.log(arguments);</div><div class="line">        input[index]=item*10;</div><div class="line">    &#125;);</div><div class="line">    console.log(res);//-&gt;undefined</div><div class="line">    console.log(ary);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>控制台中返回结果如图所示:<br><img src="http://oyh928sxz.bkt.clouddn.com/forEach.png" alt=""></p>
+<p>原因：执行了5函数，输出了5次arguments,并且函数在遍历的时候是从索引0开始依次遍历的。</p>
+<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>map的回调函数中支持return返回值，return的后面是啥，相当于把数组中的这这一项改变为啥(但是并不影响原来的数组，只是相当于把原来的数组克隆一份，把克隆的这一份数组中的对应项改变了)。</p>
+<p>用代码表示为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt;  </div><div class="line">        var ary=[12,23,34,45,43];</div><div class="line">    var res=ary.map(function (item, index, input) &#123;</div><div class="line">        return item*10;</div><div class="line">    &#125;);</div><div class="line">    console.log(res);//-&gt; [120, 230, 340, 450, 430]</div><div class="line">    console.log(ary);//-&gt;[12, 23, 34, 45, 43]</div><div class="line"></div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>不管是forEach还是map都支持第二个参数，第二个参数的意识是把匿名函数中的this进行修改为第二个参数值。</p>
+<p>代码表示:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt;  </div><div class="line">     var obj=&#123;name:&quot;abc&quot;&#125;;</div><div class="line">    var ary=[12,23,34,45,43];</div><div class="line"></div><div class="line">    ary.forEach(function (item, index) &#123;</div><div class="line">        console.log(this);</div><div class="line">    &#125;);</div><div class="line">    ary.forEach(function (item, index) &#123;</div><div class="line">        console.log(this);</div><div class="line">    &#125;,obj);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>在控制台中输出的结果如图所示:</p>
+<p><img src="http://oyh928sxz.bkt.clouddn.com/map%E6%88%96forEach%E4%B8%AD%E7%9A%84this%E9%97%AE%E9%A2%98.png" alt=""></p>
+<p>证实了上面的结论。</p>
+<blockquote>
+<pre><code>不管是forEach还是map在IE6-8下都不兼容
+</code></pre></blockquote>
 
       
     </div>
@@ -468,6 +484,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
 
       
       
@@ -477,8 +499,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/11/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/11/05/JS的同步和异步编程/" rel="next" title="JavaScript的同步和异步编程">
+                <i class="fa fa-chevron-left"></i> JavaScript的同步和异步编程
               </a>
             
           </div>
@@ -486,10 +508,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/27/DOM2级事件/" rel="prev" title="DOM0级事件绑定和DOM2级事件及其扩展">
-                DOM0级事件绑定和DOM2级事件及其扩展 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -572,8 +590,17 @@ var jiathis_config={
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -659,6 +686,22 @@ var jiathis_config={
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#forEach"><span class="nav-number">1.</span> <span class="nav-text">forEach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map"><span class="nav-number">2.</span> <span class="nav-text">map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">3.</span> <span class="nav-text">注意</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
