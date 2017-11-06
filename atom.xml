@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/"/>
-  <updated>2017-11-05T08:12:30.060Z</updated>
+  <updated>2017-11-06T13:17:16.271Z</updated>
   <id>https://github.com/fanzhanxiang/fanzhanxiang.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo 部署到 Github Pages 文件夹大小写问题</title>
+    <link href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/06/Hexo%20%E9%83%A8%E7%BD%B2%E5%88%B0Github%20Pages%20%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%A7%E5%B0%8F%E5%86%99%E9%97%AE%E9%A2%98/"/>
+    <id>https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/06/Hexo 部署到Github Pages 文件夹大小写问题/</id>
+    <published>2017-11-06T13:08:59.989Z</published>
+    <updated>2017-11-06T13:17:16.271Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题简介"><a href="#问题简介" class="headerlink" title="问题简介"></a>问题简介</h2><p>使用 Hexo 部署博客到 Github Pages 时经常会遇到文件夹大小写问题导致的 404问题。<br><a id="more"></a></p><p>譬如 Hexo 生成了一个 javascript  js文件夹，但是我后来把它改成了 javascript Js，即 j 的首字母大写了。Hexo会生成正确，但部署到 Github 上却老是不正确。</p><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>git 默认忽略文件名大小写，所以即使文件夹大小写变更，git 也检测不到。</p><h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><ul><li>进入到博客项目中 .deploy_git文件夹，这个文件夹在 “博客目录-&gt;.deploy_git-&gt;git”下，修改 .git 下的 config 文件，将 ignorecase=true 改为 ignorecase=false，如图所示，这是我已经修改过的，原来是true。</li></ul><p><img src="http://oyh928sxz.bkt.clouddn.com/hexo.png" alt=""></p><ul><li>删除博客项目中 .deploy_git 文件夹下的所有文件，并 push 到 Github 上, 这一步是清空你的 github.io 项目中所有文件。在博客项目中，执行下面命令。</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cd .deploy_git  </div><div class="line">it rm -rf *  </div><div class="line">git commit -m &apos;clean all file&apos;  </div><div class="line">git push</div></pre></td></tr></table></figure><ul><li>使用 Hexo 再次生成及部署，在上面命令执行完之后执行下面命令,问题解决。</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd ..  </div><div class="line">hexo clean  </div><div class="line">hexo deploy -generate</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;问题简介&quot;&gt;&lt;a href=&quot;#问题简介&quot; class=&quot;headerlink&quot; title=&quot;问题简介&quot;&gt;&lt;/a&gt;问题简介&lt;/h2&gt;&lt;p&gt;使用 Hexo 部署博客到 Github Pages 时经常会遇到文件夹大小写问题导致的 404问题。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="hexo" scheme="https://github.com/fanzhanxiang/fanzhanxiang.github.io/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="https://github.com/fanzhanxiang/fanzhanxiang.github.io/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>本地存储</title>

@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo 部署到 Github Pages 文件夹大小写问题]]></title>
+    <url>%2F2017%2F11%2F06%2FHexo%20%E9%83%A8%E7%BD%B2%E5%88%B0Github%20Pages%20%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%A7%E5%B0%8F%E5%86%99%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[问题简介使用 Hexo 部署博客到 Github Pages 时经常会遇到文件夹大小写问题导致的 404问题。 譬如 Hexo 生成了一个 javascript js文件夹，但是我后来把它改成了 javascript Js，即 j 的首字母大写了。Hexo会生成正确，但部署到 Github 上却老是不正确。 原因git 默认忽略文件名大小写，所以即使文件夹大小写变更，git 也检测不到。 解决办法 进入到博客项目中 .deploy_git文件夹，这个文件夹在 “博客目录-&gt;.deploy_git-&gt;git”下，修改 .git 下的 config 文件，将 ignorecase=true 改为 ignorecase=false，如图所示，这是我已经修改过的，原来是true。 删除博客项目中 .deploy_git 文件夹下的所有文件，并 push 到 Github 上, 这一步是清空你的 github.io 项目中所有文件。在博客项目中，执行下面命令。 1234cd .deploy_git it rm -rf * git commit -m &apos;clean all file&apos; git push 使用 Hexo 再次生成及部署，在上面命令执行完之后执行下面命令,问题解决。 123cd .. hexo clean hexo deploy -generate]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[本地存储]]></title>
     <url>%2F2017%2F11%2F05%2F%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%2F</url>
     <content type="text"><![CDATA[JS中的本地存储: 使用JS向浏览器向浏览器某一个位置中存储一些内容，浏览器即使关闭了，存储了信息也不会销毁，当在重新打开浏览器的时候我们依然可以获取到上一次存储的信息。 一、本地存储的方案传统: 1、cookie:把信息存储到客户端的浏览器中（但是项目服务器端也是可以获取COOKIE的） 2、session:把信息存储到服务器上的（服务器存储） HTML5:webStorage 1、localStorage:永久存储到客户端本地 2、sessionStorage:信息会话存储，回话窗口存在信息也存在，会话窗口关闭信息也消失了 打开谷歌控制台，按F12可以Application中可以看到这些相应的窗口:如图所示 COOKIE localStorage sessionStorage三者之间的用法以及区别webStorage localStorage和sessionStorage的用法是一样的：setItem([key],[value]):向客户端的本地存储一条记录，存储的[value]值需要使字符串格式的，如果编写的不是字符串，浏览器也会默认转化为字符串然后进行存储;存储的[key]是不会重复的，如果之前有的话，把存储的信息值重新进行修改； 1、getItem([key]):获取之前存储的值 2、removeItem([key]):移除key对应的那条记录 3、clear():把当前源下所有的存储记录都移除掉 4、localStorage.length:获取存储的记录条数 5、localStorage.key(0):获取索引为0这一项的key是什么 用代码表示为: 1234567console.log(localStorage.getItem(&apos;age&apos;));//-&gt;&quot;7&quot; localStorage.setItem(&apos;age&apos;,JSON.stringify(&#123;name:&apos;abc&apos;&#125;)); console.log(localStorage.getItem(&apos;age&apos;));//-&gt;&quot;&#123;&quot;name&quot;:&quot;abc&quot;&#125;&quot; localStorage.removeItem(&apos;age&apos;); localStorage.clear(); console.log(localStorage.length);//-&gt;0 console.log(localStorage.key(0));//-&gt;&apos;null&apos; 下面是执行下面这段代码之后存储在控制台里面看到的效果: 1console.log(localStorage.getItem(&apos;age&apos;));//-&gt;&quot;7&quot; localStorage和sessionStorage的区别: 1、localStorage属于永久存储到本地，不管是刷新页面还是关掉页面或者关掉浏览器，存储的内 容都不会消失，只有我们手动删除才会消失（不管是杀毒软件还是浏览器自带的清除历史记录 的功能都不能把localStorage存储的内容移除掉）; 2、sessionStorage属于临时会话存储，只要当前的页面不关闭，信息就可以存储下来，但是页 面一旦关闭,存储的信息就会自动关闭（F5刷新只是把当前的DOM机构等进行重新渲染，会话并 没有关闭） cookie cookie和locaStorage的区别: 1、cookie兼容所有浏览器，但是localStorage不兼容IE6-8 2、cookie存储内容的大小是有限制的，一般同源下只能存储4KB内容;localStorage存储的内 容大小也有限制，一般同源下只能存储5MB; 3、cookie存储的内容是有过期时间的，而localStorage是永久存储到本地，使用杀毒软件或者 清除垃圾的功能都可能把存储的cookie给删除掉 4、用户可能出于安全的角度禁用cookie(无痕浏览)，但是不能禁用localStorage.]]></content>
