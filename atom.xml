@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/"/>
-  <updated>2017-11-06T13:17:16.271Z</updated>
+  <updated>2017-11-07T07:28:04.278Z</updated>
   <id>https://github.com/fanzhanxiang/fanzhanxiang.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>call、apply、bind的区别</title>
+    <link href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/07/call%E3%80%81apply%E3%80%81bind%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/07/call、apply、bind的区别/</id>
+    <published>2017-11-07T07:11:49.455Z</published>
+    <updated>2017-11-07T07:28:04.278Z</updated>
+    
+    <content type="html"><![CDATA[<p>apply和call的作用是一模一样的，都是用来改变方法下的this关键字并且把方法执行，并且在”严格模式”下和非严格模式下对于第一个参数书null和undefined这种情况也是一样的。当在JS开始的时候在最前面加一句代码叫:”<strong>use strict</strong>“表示告诉当前当前浏览器，接下来的JS代码将按照严格模式编写<br><a id="more"></a><br><strong>严格模式</strong></p><blockquote><pre><code>在非严格模式下，函数定义的形参和arguments是存在映射关系的，一个变另一个也跟着变,  但是在严格模式下这个是没有映射关系的。并且在严格模式下禁止我们使用arguments.callee和arguments.callee.caller;</code></pre></blockquote><h2 id="call"><a href="#call" class="headerlink" title="call"></a>call</h2><p>代码如下:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">    &apos;use strict&apos;;//告诉当前当前浏览器，接下来的JS代码将按照严格模式编写</div><div class="line">    var obj=&#123;name:&quot;ABC&quot;&#125;;</div><div class="line">    function fn(num1,num2) &#123;</div><div class="line">        console.log(num1+num2);</div><div class="line">        console.log(this);</div><div class="line">    &#125;</div><div class="line">    //fn(100,200);//this是Window num1=100，num2=200</div><div class="line">    //fn.call(100,200);//this-&gt;100 num1=200 num2=undefined</div><div class="line">    //fn.call(obj,100,200);//this-&gt;obj num1=100 num2=200</div><div class="line">    /*fn.call();//this-&gt;window  在严格模式下 this-&gt;undefined</div><div class="line">    fn.call(null);//this-&gt;window  在严格模式下this-&gt;null</div><div class="line">    fn.call(undefined);//this-&gt;window  在严格模式下this-undefined</div><div class="line">    */</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><blockquote><pre><code>我们发现严格模式下的this相对于非严格模式的this主要区别在于：对于JS代码没有写执行主体去情况下，非严格模式默认是在Window执行的，所以this指向的是Window;但是在严格模式下没有写执行主体，this指向是undefined.</code></pre></blockquote><h2 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt;  </div><div class="line">   var obj=&#123;name:&quot;ABC&quot;&#125;;</div><div class="line">   function fn(num1,num2) &#123;</div><div class="line">        console.log(num1+num2);</div><div class="line">        console.log(this);</div><div class="line">    &#125;</div><div class="line">   //fn.call(obj,100,200);//-&gt;这行代码和下面这行代码的作用相同</div><div class="line">   fn.apply(obj,[100,200]);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><p><strong>和call的区别</strong></p><blockquote><p>call在给fn传递参数的时候是一个一个传递的，而apply不是一个个传，而是要把fn传递的参数值统一放在一个数组中进行操作，但是也相当于一个个的给fn的形参赋值.</p></blockquote><h2 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h2><p>这个方法在IE6-8上不兼容-&gt;和call和apply方法类似，都是用来改变this关键字的。但是这个方法是一个预处理的效果，事先把this变为我们想要的结果，并且把函数中的参数值也准备好。以后用到了直接执行即可。</p><p>用代码表示为:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt;  </div><div class="line">   var obj=&#123;name:&quot;ABC&quot;&#125;;</div><div class="line">   function fn(num1,num2) &#123;</div><div class="line">        console.log(num1+num2,this);</div><div class="line">    &#125;</div><div class="line">   //fn.call(obj,100,200);//-&gt;已经执行了，会输出值&quot;300,&#123;name:&quot;ABC&quot;&#125;&quot;;</div><div class="line">   fn.bind(obj,100,200);//仅仅是改变了fn中的this为obj,传递参数值，并没有执行fn这个方法</div><div class="line">   var tempFn=fn.bind(obj,1,2)//-&gt;&quot;3,&#123;name:&quot;ABC&quot;&#125;&quot;;这时候fn就执行了,这就是bind的作用</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><p>bind的还有一个作用是事先固定值的功能，比如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt;  </div><div class="line">   function fn(num1,num2) &#123;</div><div class="line">        console.log(num1+num2，this);</div><div class="line">    &#125;</div><div class="line">   fn.bind(this,100);//-&gt;这里bind的作用不是改变this问题，this还是Window，但是这里是先  在函数里面固定的传入第一个参数值num1,第二个参数值在执行的时候可以在后面再传递进去。比如下  面这行代码</div><div class="line">   var tempFn=fn.bind(this,100);</div><div class="line">   tempFn(2);//-&gt;这里相当于传递进来了第二个参数num2，输出值为&quot;3,window&quot;,这里的作用并没有改变this值。如果不传递第二个参数的话第二个参数默认是undefined</div><div class="line">   tenpFn();//-&gt;&quot;NaN,window&quot;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><p>bind体现了JS中的<strong>预处理</strong>思想：事先把fn的this改变为我们想要的结果，并且把对应的参数值也准备好，以后要是用到了，直接的执行即可。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;apply和call的作用是一模一样的，都是用来改变方法下的this关键字并且把方法执行，并且在”严格模式”下和非严格模式下对于第一个参数书null和undefined这种情况也是一样的。当在JS开始的时候在最前面加一句代码叫:”&lt;strong&gt;use strict&lt;/strong&gt;“表示告诉当前当前浏览器，接下来的JS代码将按照严格模式编写&lt;br&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://github.com/fanzhanxiang/fanzhanxiang.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="https://github.com/fanzhanxiang/fanzhanxiang.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo 部署到 Github Pages 文件夹大小写问题</title>
