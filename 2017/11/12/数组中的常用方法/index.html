@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="下面的数组的方法中都是按照下面的四个维度去详细解读：  1、这个数组方法的作用 2、需要传那些参数 3、是否有返回值、返回值是什么 4、通过这个方法是否对原来的数组产生了影响。">
+<meta name="description" content="下面的数组的方法中都是按照下面的四个维度去详细解读：">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数组的常用方法">
 <meta property="og:url" content="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/12/数组中的常用方法/index.html">
 <meta property="og:site_name" content="fanzhanxiang&#39; Blog">
-<meta property="og:description" content="下面的数组的方法中都是按照下面的四个维度去详细解读：  1、这个数组方法的作用 2、需要传那些参数 3、是否有返回值、返回值是什么 4、通过这个方法是否对原来的数组产生了影响。">
+<meta property="og:description" content="下面的数组的方法中都是按照下面的四个维度去详细解读：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-12T11:42:11.800Z">
+<meta property="og:updated_time" content="2017-11-12T14:37:03.334Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数组的常用方法">
-<meta name="twitter:description" content="下面的数组的方法中都是按照下面的四个维度去详细解读：  1、这个数组方法的作用 2、需要传那些参数 3、是否有返回值、返回值是什么 4、通过这个方法是否对原来的数组产生了影响。">
+<meta name="twitter:description" content="下面的数组的方法中都是按照下面的四个维度去详细解读：">
 
 
 
@@ -414,14 +414,13 @@
       
 
       
-        <p>下面的数组的方法中都是按照下面的四个维度去详细解读：</p>
+        <p>下面的数组的方法中都是按照下面的四个维度去详细解读：<br><a id="more"></a></p>
 <blockquote>
 <pre><code>1、这个数组方法的作用
 2、需要传那些参数
 3、是否有返回值、返回值是什么
 4、通过这个方法是否对原来的数组产生了影响。
-</code></pre><a id="more"></a>
-</blockquote>
+</code></pre></blockquote>
 <h2 id="关于数组的增加、修改、删除"><a href="#关于数组的增加、修改、删除" class="headerlink" title="关于数组的增加、修改、删除"></a>关于数组的增加、修改、删除</h2><p><strong>1、push</strong></p>
 <blockquote>
 <pre><code>作用：向数组的末尾增加新的内容
@@ -500,7 +499,7 @@
 </code></pre></blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var ary1=[12,23,34,45,23,34];  </div><div class="line">var ary2=[100,200];  </div><div class="line">var res=ary1.concat(ary2,ary2);  </div><div class="line">console.log(res,ary1,ary2);//-&gt;[ 12, 23, 34, 45, 23, 34, 100, 200, 100, 200 ] [ 12, 23, 34, 45, 23, 34 ] [ 100, 200 ]</div></pre></td></tr></table></figure>
 <p>注意ary1.concat（）,相当于把ary1克隆一份一模一样的数组.</p>
-<h2 id="3、把数组转化为字符串"><a href="#3、把数组转化为字符串" class="headerlink" title="3、把数组转化为字符串"></a>3、把数组转化为字符串</h2><p><strong>1、toString</strong></p>
+<h2 id="把数组转化为字符串"><a href="#把数组转化为字符串" class="headerlink" title="把数组转化为字符串"></a>把数组转化为字符串</h2><p><strong>1、toString</strong></p>
 <blockquote>
 <pre><code>作用：把数组转化为字符串
 传递的参数:没有参数
@@ -628,6 +627,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/11/12/字符串String的常用方法/" rel="prev" title="字符串String的常用方法">
+                字符串String的常用方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -738,7 +741,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -749,7 +752,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -760,7 +763,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -815,7 +818,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于数组的增加、修改、删除"><span class="nav-number">1.</span> <span class="nav-text">关于数组的增加、修改、删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于数组的截取和拼接"><span class="nav-number">2.</span> <span class="nav-text">关于数组的截取和拼接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、把数组转化为字符串"><span class="nav-number">3.</span> <span class="nav-text">3、把数组转化为字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的排序和排列"><span class="nav-number">4.</span> <span class="nav-text">数组的排序和排列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#只有在标准浏览器中兼容的方法，在IE6-8下不兼容的"><span class="nav-number">5.</span> <span class="nav-text">只有在标准浏览器中兼容的方法，在IE6-8下不兼容的</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于数组的增加、修改、删除"><span class="nav-number">1.</span> <span class="nav-text">关于数组的增加、修改、删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于数组的截取和拼接"><span class="nav-number">2.</span> <span class="nav-text">关于数组的截取和拼接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把数组转化为字符串"><span class="nav-number">3.</span> <span class="nav-text">把数组转化为字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的排序和排列"><span class="nav-number">4.</span> <span class="nav-text">数组的排序和排列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#只有在标准浏览器中兼容的方法，在IE6-8下不兼容的"><span class="nav-number">5.</span> <span class="nav-text">只有在标准浏览器中兼容的方法，在IE6-8下不兼容的</span></a></li></ol></div>
             
 
           </div>
