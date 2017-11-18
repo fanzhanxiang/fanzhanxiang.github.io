@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[process.nextTick、setTimeout、setImmediate、异步ID的优先级问题]]></title>
+    <url>%2F2017%2F11%2F18%2Fprocess.nextTick%E3%80%81setTimeout%E3%80%81setImmediate%E3%80%81%E5%BC%82%E6%AD%A5ID%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[上述的几种方法里面传递的函数都是异步执行的，但是他们执行的时候是有顺序的。 process.nextTick(callback)功能：在事件循环的下一次循环中调用 callback 回调函数。效果是将一个函数推迟到代码书写的下一个同步方法执行完毕时或异步方法的事件回调函数开始执行时；与setTimeout(interval, 0) 函数的功能类似，但它的效率高多了。 通过下面的代码来比较它们的上述几种情况的优先级； 12345678910111213141516var fs=require(&apos;fs&apos;); fs.readFile(&apos;1.js&apos;,function(err,data)&#123; console.log(&quot;a: readFile&quot;) &#125;); console.log(&apos;a客人&apos;); setTimeout(function () &#123; console.log(&apos;a: setTimeout&apos;); &#125;,0); process.nextTick(function () &#123; console.log(&apos;a: nextTick1&apos;); &#125;); setImmediate(function () &#123; console.log(&apos;a: setImmediate&apos;); &#125;); console.log(&apos;b厨师&apos;); console.log(&apos;c厨师&apos;); 最后在控制台中输出结果如图所示： 得出简单的结论:他们的优先级顺序是nexttick&gt;setTimeout&gt;setImmediate&gt;异步IO 但是这里还是不能够得出看出直接比较出nexttick和setTimeout的优先级顺序，于是看下面的代码： 12345678910111213141516171819202122var fs=require(&apos;fs&apos;); fs.readFile(&apos;1.js&apos;,function(err,data)&#123; console.log(&quot;a: readFile&quot;) &#125;); console.log(&apos;a客人&apos;); setTimeout(function () &#123; console.log(&apos;a: setTimeout&apos;); &#125;,0); process.nextTick(function () &#123; console.log(&apos;a: nextTick1&apos;); process.nextTick(function () &#123; console.log(&apos;a: nextTick2&apos;); &#125;); process.nextTick(function () &#123; console.log(&apos;a: nextTick3&apos;); &#125;); &#125;); setImmediate(function () &#123; console.log(&apos;a: setImmediate&apos;); &#125;); console.log(&apos;b厨师&apos;); console.log(&apos;c厨师&apos;); 最后输出的结果如图所示： 得出结论:他们的优先级顺序是nexttick&gt;setTimeout&gt;setImmediate&gt;异步IO 注意：nexttick相当于是放在当前队列的最后一个执行，而setTimeout、setImmediate、异步IO都是在另一个队列中执行，因此nexttick永远比他们先执行。]]></content>
+      <categories>
+        <category>Node.js</category>
+      </categories>
+      <tags>
+        <tag>Node.js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[node中this]]></title>
     <url>%2F2017%2F11%2F18%2Fnode%E4%B8%ADthis%2F</url>
     <content type="text"><![CDATA[nodejs中的this和在浏览器中javascript中的this是不一样的。在全局中的this1234console.log(this); //-&gt;&#123;&#125; this.num =1; console.log(this.num); //-&gt;1 console.log(global.num); //-&gt;undefined 全局中的this默认是一个空对象。并且在全局中this与global对象没有任何的关系。那么全局中的this到底是什么了。看下面这段代码： 123var name=&quot;aba&quot;; exports.name=name; console.log(this);//-&gt;this-&gt;&#123; name: &apos;aba&apos; &#125; 全局中this会指向module.exports。 在函数中的this 1234567function fn()&#123; this.num = 1;&#125; fn(); console.log(this); /-&gt;&#123;&#125; console.log(this.num); //-&gt;undefined console.log(global.num); //-&gt;1 总结:在函数中this指向的是global对象，和全局中的this不是同一个对象，简单来说，你在函 数中通过this定义的变量就是相当于给global添加了一个属性，此时与全局中的this已经没有 关系了。 如果还堆这个结论表示怀疑，那么下面这段代码足以证明: 12345678910function fn()&#123; function fn2()&#123; this.age = 18; &#125; fn2(); console.log(this); //-&gt;global console.log(this.age); //-&gt;18 console.log(global.age); //-&gt;18 &#125;fn(); 所以总结出:函数中this指向就是global 构造函数中的this 看下面这段代码： 123456function Fn()&#123; this.num = 100; &#125; var fn = new Fn(); console.log(fn.num); //-&gt;100 console.log(global.num); //-&gt;undefined 在构造函数中this指向的是它的实例，而不是global。]]></content>
