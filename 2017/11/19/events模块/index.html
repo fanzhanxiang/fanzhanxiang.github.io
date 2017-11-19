@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="Node.js," />
 
 
 
@@ -81,20 +81,21 @@
 
 
 
-<meta name="description" content="问题简介使用 Hexo 部署博客到 Github Pages 时经常会遇到文件夹大小写问题导致的 404问题。">
-<meta name="keywords" content="hexo">
+<meta name="description" content="Nodejs的大部分核心API都是基于异步事件驱动设计的，所有可以分发事件的对象都是EventEmitter类的实例。">
+<meta name="keywords" content="Node.js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo 部署到 Github Pages 文件夹大小写问题">
-<meta property="og:url" content="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/06/Hexo 部署到Github Pages 文件夹大小写问题/index.html">
+<meta property="og:title" content="events模块">
+<meta property="og:url" content="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/19/events模块/index.html">
 <meta property="og:site_name" content="fanzhanxiang&#39; Blog">
-<meta property="og:description" content="问题简介使用 Hexo 部署博客到 Github Pages 时经常会遇到文件夹大小写问题导致的 404问题。">
+<meta property="og:description" content="Nodejs的大部分核心API都是基于异步事件驱动设计的，所有可以分发事件的对象都是EventEmitter类的实例。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://oyh928sxz.bkt.clouddn.com/hexo.png">
-<meta property="og:updated_time" content="2017-11-06T13:17:16.271Z">
+<meta property="og:image" content="http://oyh928sxz.bkt.clouddn.com/once%E4%BA%8B%E4%BB%B6.png">
+<meta property="og:image" content="http://oyh928sxz.bkt.clouddn.com/%E7%9B%91%E5%90%AC%E6%95%B0%E5%92%8C%E7%9B%91%E5%90%AC%E5%87%BD%E6%95%B0.png">
+<meta property="og:updated_time" content="2017-11-19T01:54:25.371Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo 部署到 Github Pages 文件夹大小写问题">
-<meta name="twitter:description" content="问题简介使用 Hexo 部署博客到 Github Pages 时经常会遇到文件夹大小写问题导致的 404问题。">
-<meta name="twitter:image" content="http://oyh928sxz.bkt.clouddn.com/hexo.png">
+<meta name="twitter:title" content="events模块">
+<meta name="twitter:description" content="Nodejs的大部分核心API都是基于异步事件驱动设计的，所有可以分发事件的对象都是EventEmitter类的实例。">
+<meta name="twitter:image" content="http://oyh928sxz.bkt.clouddn.com/once%E4%BA%8B%E4%BB%B6.png">
 
 
 
@@ -124,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/06/Hexo 部署到Github Pages 文件夹大小写问题/"/>
+  <link rel="canonical" href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/19/events模块/"/>
 
 
 
 
 
-  <title>Hexo 部署到 Github Pages 文件夹大小写问题 | fanzhanxiang' Blog</title>
+  <title>events模块 | fanzhanxiang' Blog</title>
   
 
 
@@ -311,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/06/Hexo 部署到Github Pages 文件夹大小写问题/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/19/events模块/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="范占祥">
@@ -328,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo 部署到 Github Pages 文件夹大小写问题</h1>
+          <h1 class="post-title" itemprop="name headline">events模块</h1>
         
 
         <div class="post-meta">
@@ -340,8 +341,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T21:08:59+08:00">
-                2017-11-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-19T08:14:02+08:00">
+                2017-11-19
               </time>
             
 
@@ -363,8 +364,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
+                  <a href="/categories/Node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">Node.js</span>
                   </a>
                 </span>
 
@@ -380,7 +381,7 @@
 
           
           
-             <span id="/2017/11/06/Hexo 部署到Github Pages 文件夹大小写问题/" class="leancloud_visitors" data-flag-title="Hexo 部署到 Github Pages 文件夹大小写问题">
+             <span id="/2017/11/19/events模块/" class="leancloud_visitors" data-flag-title="events模块">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -416,21 +417,39 @@
       
 
       
-        <h2 id="问题简介"><a href="#问题简介" class="headerlink" title="问题简介"></a>问题简介</h2><p>使用 Hexo 部署博客到 Github Pages 时经常会遇到文件夹大小写问题导致的 404问题。<br><a id="more"></a></p>
-<p>譬如 Hexo 生成了一个 javascript  js文件夹，但是我后来把它改成了 javascript Js，即 j 的首字母大写了。Hexo会生成正确，但部署到 Github 上却老是不正确。</p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>git 默认忽略文件名大小写，所以即使文件夹大小写变更，git 也检测不到。</p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><ul>
-<li>进入到博客项目中 .deploy_git文件夹，这个文件夹在 “博客目录-&gt;.deploy_git-&gt;git”下，修改 .git 下的 config 文件，将 ignorecase=true 改为 ignorecase=false，如图所示，这是我已经修改过的，原来是true。</li>
-</ul>
-<p><img src="http://oyh928sxz.bkt.clouddn.com/hexo.png" alt=""></p>
-<ul>
-<li>删除博客项目中 .deploy_git 文件夹下的所有文件，并 push 到 Github 上, 这一步是清空你的 github.io 项目中所有文件。在博客项目中，执行下面命令。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cd .deploy_git  </div><div class="line">it rm -rf *  </div><div class="line">git commit -m &apos;clean all file&apos;  </div><div class="line">git push</div></pre></td></tr></table></figure>
-<ul>
-<li>使用 Hexo 再次生成及部署，在上面命令执行完之后执行下面命令,问题解决。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd ..  </div><div class="line">hexo clean  </div><div class="line">hexo deploy -generate</div></pre></td></tr></table></figure>
+        <p>Nodejs的大部分核心API都是基于异步事件驱动设计的，所有可以分发事件的对象都是EventEmitter类的实例。<br><a id="more"></a></p>
+<h2 id="监听和执行"><a href="#监听和执行" class="headerlink" title="监听和执行"></a>监听和执行</h2><p>EventEmitter实例可以使用on或addListener监听事件，当触发事件的时候，用emit()方法来执行on或addListener里面绑定的方法。看下面代码；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var EventEmitter=require(&apos;events&apos;);  </div><div class="line">var util=require(&apos;util&apos;);  </div><div class="line">function Bell(name)&#123;  </div><div class="line">    this.name=name;  </div><div class="line">&#125;  </div><div class="line">util.inherits(Bell,EventEmitter); //-&gt;Bell继承EventEmitter类  </div><div class="line">var jingleBell=new Bell(&apos;jingle&apos;);  </div><div class="line">jingleBell.on(&apos;ring&apos;,function()&#123;  </div><div class="line">    console.log(&apos;你好世界&apos;);  </div><div class="line">&#125;);  </div><div class="line">jingleBell.addListener(&apos;drop&apos;,drop);  </div><div class="line">function drop() &#123;  </div><div class="line">    console.log(&apos;你上天吧&apos;);  </div><div class="line">&#125;  </div><div class="line">jingleBell.emit(&apos;ring&apos;);//-&gt;你好世界   </div><div class="line">jingleBell.emit(&apos;drop&apos;);//-&gt;你上天吧</div></pre></td></tr></table></figure>
+<h2 id="通过emit向监听函数里面传递参数"><a href="#通过emit向监听函数里面传递参数" class="headerlink" title="通过emit向监听函数里面传递参数"></a>通过emit向监听函数里面传递参数</h2><p>看下面这段代码；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var EventEmitter=require(&apos;events&apos;);  </div><div class="line">var util=require(&apos;util&apos;);  </div><div class="line">function Bell(name)&#123;  </div><div class="line">    this.name=name;  </div><div class="line">&#125;  </div><div class="line">util.inherits(Bell,EventEmitter);  </div><div class="line">var jingleBell=new Bell(&apos;jingle&apos;);  </div><div class="line">jingleBell.on(&apos;ring&apos;,function(who,position)&#123;  </div><div class="line">    console.log(who+&apos;你好世界&apos;+position);  </div><div class="line">&#125;);  </div><div class="line">jingleBell.addListener(&apos;drop&apos;,drop);  </div><div class="line">function drop(who) &#123;  </div><div class="line">    console.log(who+&apos;你上天吧&apos;);  </div><div class="line">&#125;  </div><div class="line">jingleBell.emit(&apos;ring&apos;,&quot;哈哈&quot;,&quot;中国&quot;);//-&gt;哈哈你好世界中国  </div><div class="line">jingleBell.emit(&apos;drop&apos;,&apos;小明&apos;);//-&gt;小明你上天吧</div></pre></td></tr></table></figure>
+<blockquote>
+<pre><code>通过上面代码可以看出，emit后面可以向监听函数里面传递参数；
+</code></pre></blockquote>
+<h2 id="一次性事件监听"><a href="#一次性事件监听" class="headerlink" title="一次性事件监听"></a>一次性事件监听</h2><p>EventEmiter可以使用once监听某个事件，则该事件处理程序只会触发一次，之后emit该事件都会被忽略，因为监听程序被注销了，用代码验证如下；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var EventEmitter=require(&apos;events&apos;);  </div><div class="line">var util=require(&apos;util&apos;);  </div><div class="line">    this.name=name;  </div><div class="line">&#125;  </div><div class="line">util.inherits(Bell,EventEmitter);  </div><div class="line">var jingleBell=new Bell(&apos;jingle&apos;);  </div><div class="line">jingleBell.once(&apos;ring&apos;,function(who,position)&#123;  </div><div class="line">    console.log(who+&apos;你好世界&apos;+position);  </div><div class="line">&#125;);  </div><div class="line">jingleBell.addListener(&apos;drop&apos;,drop);  </div><div class="line">function drop(who) &#123;  </div><div class="line">    console.log(who+&apos;你上天吧&apos;);  </div><div class="line">&#125;  </div><div class="line">jingleBell.emit(&apos;ring&apos;,&quot;哈哈&quot;,&quot;中国&quot;);  </div><div class="line">jingleBell.emit(&apos;ring&apos;,&quot;哈哈&quot;,&quot;美国&quot;);  </div><div class="line">jingleBell.emit(&apos;drop&apos;,&apos;校长&apos;);  </div><div class="line">jingleBell.emit(&apos;drop&apos;,&quot;同学&quot;);</div></pre></td></tr></table></figure>
+<p>最后输出结果如图所示；</p>
+<p><img src="http://oyh928sxz.bkt.clouddn.com/once%E4%BA%8B%E4%BB%B6.png" alt=""></p>
+<h2 id="移除事件绑定"><a href="#移除事件绑定" class="headerlink" title="移除事件绑定"></a>移除事件绑定</h2><p>类似DOM事件监听，EventEmiter也可以移除事件绑定，利用removeListener(eventName,listener)方法解除某个事件的绑定，因此回调函数listener必须是实名函数，不能是匿名函数，要不然找不到该函数，就不能移除，因为函数是引用型类型，就算函数体是一样，也不是同一个函数；用代码验证；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">ar EventEmitter=require(&apos;events&apos;);  </div><div class="line">var util=require(&apos;util&apos;);  </div><div class="line">function Bell(name)&#123;  </div><div class="line">    this.name=name;  </div><div class="line">&#125;  </div><div class="line">util.inherits(Bell,EventEmitter);  </div><div class="line">var jingleBell=new Bell(&apos;jingle&apos;);  </div><div class="line">jingleBell.on(&apos;ring&apos;,function(who,position)&#123;  </div><div class="line">    console.log(who+&apos;你好世界&apos;+position);  </div><div class="line">&#125;);  </div><div class="line">jingleBell.removeListener(&apos;ring&apos;,function(who,position)&#123;  </div><div class="line">    console.log(who+&apos;你好世界&apos;+position);  </div><div class="line">&#125;);  </div><div class="line">jingleBell.addListener(&apos;drop&apos;,drop);  </div><div class="line">jingleBell.removeListener(&apos;drop&apos;,drop);  </div><div class="line">function drop(who) &#123;  </div><div class="line">    console.log(who+&apos;你上天吧&apos;);  </div><div class="line">&#125;  </div><div class="line">jingleBell.emit(&apos;ring&apos;,&quot;哈哈&quot;,&quot;中国&quot;);//-&gt;控制台输出&quot;哈哈你好世界中国&quot;  </div><div class="line">jingleBell.emit(&apos;drop&apos;,&apos;校长&apos;);//-&gt;控制台什么都没有输出</div></pre></td></tr></table></figure>
+<blockquote>
+<pre><code>通过上面的代码可以得出结论在移除事件绑定的时候必须要是实名函数；
+</code></pre></blockquote>
+<h2 id="获取事件监听数量和监听函数"><a href="#获取事件监听数量和监听函数" class="headerlink" title="获取事件监听数量和监听函数"></a>获取事件监听数量和监听函数</h2><blockquote>
+<pre><code>用listenerCount（事件类型）方法可以得出某种事件类型所监听函数的数量，用
+listeners（事件类型）方法可以得到该事件类型监听的所有函数。
+</code></pre></blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var EventEmitter=require(&apos;events&apos;);  </div><div class="line">var util=require(&apos;util&apos;);  </div><div class="line">function Bell(name)&#123;  </div><div class="line">    this.name=name;  </div><div class="line">&#125;  </div><div class="line">util.inherits(Bell,EventEmitter);  </div><div class="line">var jingleBell=new Bell(&apos;jingle&apos;);  </div><div class="line">jingleBell.on(&apos;ring&apos;,function(who,position)&#123;  </div><div class="line">    console.log(who+&apos;你好世界&apos;+position);  </div><div class="line">&#125;);  </div><div class="line">jingleBell.on(&apos;ring&apos;,fly);  </div><div class="line">function fly()&#123;&#125;  </div><div class="line">console.log(&quot;EventEmitter实例的ring事件绑定了%d个回调函数&quot;,jingleBell.listenerCount(&apos;ring&apos;));  </div><div class="line">console.log(&quot;他们是：&quot;+jingleBell.listeners(&apos;ring&apos;));</div></pre></td></tr></table></figure>
+<p>执行结果如图所示：<br><img src="http://oyh928sxz.bkt.clouddn.com/%E7%9B%91%E5%90%AC%E6%95%B0%E5%92%8C%E7%9B%91%E5%90%AC%E5%87%BD%E6%95%B0.png" alt=""></p>
+<h2 id="获取和设置最大监听数量"><a href="#获取和设置最大监听数量" class="headerlink" title="获取和设置最大监听数量"></a>获取和设置最大监听数量</h2><p>nodejs对同一事件的监听数量建议不宜超过10个，这个可以查看EventEmitter.defaultMaxListeners属性便可得知，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var EventEmitter=require(&apos;events&apos;);     </div><div class="line">console.log(EventEmitter.defaultMaxListeners);  //-&gt;10</div></pre></td></tr></table></figure>
+<p>通过getMaxListeners()方法获取最大监听数量以及setMaxListeners(n)方法设置最大监听数量,代码如下所示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var EventEmitter=require(&apos;events&apos;);  </div><div class="line">var eve=new EventEmitter();  </div><div class="line">eve.setMaxListeners(5);  </div><div class="line">console.log(eve.getMaxListeners());//-&gt;5</div></pre></td></tr></table></figure>
+<blockquote>
+<pre><code>注意:getMaxListeners()和setMaxListeners(n)是扩展在EventEmitter类的原型上的，
+&gt;因此需要创建一个他的实例之后才能调用它。
+</code></pre></blockquote>
+<p>下面的是setMaxListeners的源码的一部份：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">EventEmitter.prototype.setMaxListeners = function setMaxListeners(n) &#123;  </div><div class="line">  if (typeof n !== &apos;number&apos; || n &lt; 0 || isNaN(n))  </div><div class="line">    throw new TypeError(&apos;&quot;n&quot; argument must be a positive number&apos;);  </div><div class="line">  this._maxListeners = n;  </div><div class="line">  return this;  </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -477,7 +496,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/Node-js/" rel="tag"># Node.js</a>
           
         </div>
       
@@ -490,8 +509,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/05/本地存储/" rel="next" title="本地存储">
-                <i class="fa fa-chevron-left"></i> 本地存储
+              <a href="/2017/11/18/process.nextTick、setTimeout、setImmediate、异步ID的优先级问题/" rel="next" title="process.nextTick、setTimeout、setImmediate、异步ID的优先级问题">
+                <i class="fa fa-chevron-left"></i> process.nextTick、setTimeout、setImmediate、异步ID的优先级问题
               </a>
             
           </div>
@@ -499,10 +518,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/07/call、apply、bind的区别/" rel="prev" title="call、apply、bind的区别">
-                call、apply、bind的区别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -703,7 +718,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题简介"><span class="nav-number">1.</span> <span class="nav-text">问题简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原因"><span class="nav-number">2.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法"><span class="nav-number">3.</span> <span class="nav-text">解决办法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#监听和执行"><span class="nav-number">1.</span> <span class="nav-text">监听和执行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过emit向监听函数里面传递参数"><span class="nav-number">2.</span> <span class="nav-text">通过emit向监听函数里面传递参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一次性事件监听"><span class="nav-number">3.</span> <span class="nav-text">一次性事件监听</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移除事件绑定"><span class="nav-number">4.</span> <span class="nav-text">移除事件绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取事件监听数量和监听函数"><span class="nav-number">5.</span> <span class="nav-text">获取事件监听数量和监听函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取和设置最大监听数量"><span class="nav-number">6.</span> <span class="nav-text">获取和设置最大监听数量</span></a></li></ol></div>
             
 
           </div>
