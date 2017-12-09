@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JavaScript,JSONP," />
+  <meta name="keywords" content="Node.js，mongoDB，Mongose," />
 
 
 
@@ -81,20 +81,18 @@
 
 
 
-<meta name="description" content="综述JSONP和AJAX相同，都是向客户端向服务器发送请求:给服务器传递数据或者从服务器端获取数据的方式。但是他们两种方式之间是有区别的：JSONP属于非同源策略（跨域请求），说明一下，实现跨越的方式有很多种，只不过JSONP是最常用的；而AJAX是属于同源策略。 同源和非同源的区别同源和非同源的区别在于用当前页面的地址于数据请求的接口地址相比较：比如当前页面地址是：https://www.zhi">
-<meta name="keywords" content="JavaScript,JSONP">
+<meta name="description" content="简介Mongoose是MongoDB的一个对象模型工具是基于node-mongodb-native开发的MongoDB  nodejs驱动，可以在异步的环境下执行同时他也是针对MongoDB操作的对象模型库，封装了MongoDB对文档一些增删改等常用方法，让nodeJS操作MongoDB数据库变得更加灵活简。Mongoose,因为封装了MongoDB对文档操作常用的处理方法，让NodeJS操作Mo">
+<meta name="keywords" content="Node.js，mongoDB，Mongose">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JSONP">
-<meta property="og:url" content="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/03/JSONP/index.html">
+<meta property="og:title" content="mongoose的简单总结">
+<meta property="og:url" content="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/12/09/mongoose的简单总结/index.html">
 <meta property="og:site_name" content="fanzhanxiang&#39; Blog">
-<meta property="og:description" content="综述JSONP和AJAX相同，都是向客户端向服务器发送请求:给服务器传递数据或者从服务器端获取数据的方式。但是他们两种方式之间是有区别的：JSONP属于非同源策略（跨域请求），说明一下，实现跨越的方式有很多种，只不过JSONP是最常用的；而AJAX是属于同源策略。 同源和非同源的区别同源和非同源的区别在于用当前页面的地址于数据请求的接口地址相比较：比如当前页面地址是：https://www.zhi">
+<meta property="og:description" content="简介Mongoose是MongoDB的一个对象模型工具是基于node-mongodb-native开发的MongoDB  nodejs驱动，可以在异步的环境下执行同时他也是针对MongoDB操作的对象模型库，封装了MongoDB对文档一些增删改等常用方法，让nodeJS操作MongoDB数据库变得更加灵活简。Mongoose,因为封装了MongoDB对文档操作常用的处理方法，让NodeJS操作Mo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://oyh928sxz.bkt.clouddn.com/JSONP.png">
-<meta property="og:updated_time" content="2017-11-05T14:33:55.460Z">
+<meta property="og:updated_time" content="2017-12-09T03:57:42.566Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JSONP">
-<meta name="twitter:description" content="综述JSONP和AJAX相同，都是向客户端向服务器发送请求:给服务器传递数据或者从服务器端获取数据的方式。但是他们两种方式之间是有区别的：JSONP属于非同源策略（跨域请求），说明一下，实现跨越的方式有很多种，只不过JSONP是最常用的；而AJAX是属于同源策略。 同源和非同源的区别同源和非同源的区别在于用当前页面的地址于数据请求的接口地址相比较：比如当前页面地址是：https://www.zhi">
-<meta name="twitter:image" content="http://oyh928sxz.bkt.clouddn.com/JSONP.png">
+<meta name="twitter:title" content="mongoose的简单总结">
+<meta name="twitter:description" content="简介Mongoose是MongoDB的一个对象模型工具是基于node-mongodb-native开发的MongoDB  nodejs驱动，可以在异步的环境下执行同时他也是针对MongoDB操作的对象模型库，封装了MongoDB对文档一些增删改等常用方法，让nodeJS操作MongoDB数据库变得更加灵活简。Mongoose,因为封装了MongoDB对文档操作常用的处理方法，让NodeJS操作Mo">
 
 
 
@@ -124,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/03/JSONP/"/>
+  <link rel="canonical" href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/12/09/mongoose的简单总结/"/>
 
 
 
 
 
-  <title>JSONP | fanzhanxiang' Blog</title>
+  <title>mongoose的简单总结 | fanzhanxiang' Blog</title>
   
 
 
@@ -311,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/03/JSONP/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/12/09/mongoose的简单总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="范占祥">
@@ -328,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JSONP</h1>
+          <h1 class="post-title" itemprop="name headline">mongoose的简单总结</h1>
         
 
         <div class="post-meta">
@@ -340,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-03T09:32:59+08:00">
-                2017-11-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-09T09:52:54+08:00">
+                2017-12-09
               </time>
             
 
@@ -363,8 +361,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JSONP/" itemprop="url" rel="index">
-                    <span itemprop="name">JSONP</span>
+                  <a href="/categories/Node-js，mongoDB，Mongose/" itemprop="url" rel="index">
+                    <span itemprop="name">Node.js，mongoDB，Mongose</span>
                   </a>
                 </span>
 
@@ -380,7 +378,7 @@
 
           
           
-             <span id="/2017/11/03/JSONP/" class="leancloud_visitors" data-flag-title="JSONP">
+             <span id="/2017/12/09/mongoose的简单总结/" class="leancloud_visitors" data-flag-title="mongoose的简单总结">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -416,33 +414,133 @@
       
 
       
-        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>JSONP和AJAX相同，都是向客户端向服务器发送请求:给服务器传递数据或者从服务器端获取数据的方式。但是他们两种方式之间是有区别的：JSONP属于非同源策略（跨域请求），说明一下，实现跨越的方式有很多种，只不过JSONP是最常用的；而AJAX是属于同源策略。</p>
-<h2 id="同源和非同源的区别"><a href="#同源和非同源的区别" class="headerlink" title="同源和非同源的区别"></a>同源和非同源的区别</h2><p>同源和非同源的区别在于用当前页面的地址于数据请求的接口地址相比较：比如<br>当前页面地址是：<strong><a href="https://www.zhihu.com/people/fanzhanxiang" target="_blank" rel="external">https://www.zhihu.com/people/fanzhanxiang</a></strong>;<br>数据请求接口的地址是：<strong><a href="https://github.com/fanzhanxiang">https://github.com/fanzhanxiang</a></strong>；判断是使用AJAX请求还是JSONP请求我们需要看以下三个方面。</p>
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Mongoose是MongoDB的一个对象模型工具是基于node-mongodb-native开发的MongoDB  nodejs驱动，可以在异步的环境下执行同时他也是针对MongoDB操作的对象模型库，封装了MongoDB对文档一些增删改等常用方法，让nodeJS操作MongoDB数据库变得更加灵活简。Mongoose,因为封装了MongoDB对文档操作常用的处理方法，让NodeJS操作MongoDB数据库变得更加容易。</p>
+<h2 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h2><p>1、 安装mongoose </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install mongoose</div></pre></td></tr></table></figure>
+<p>2、 引用mongoose<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var mongoose=require(&quot;mongoose&quot;)</div></pre></td></tr></table></figure></p>
+<p>3、使用mongoose连接数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var mongoose=require(&quot;mongoose&quot;);  </div><div class="line">var db=mongoose.connect(&apos;mongodb://192.168.1.101:27017/test&apos;,&#123;useMongoClient:true&#125;,   function (err) &#123;  </div><div class="line">       if(err)&#123;   </div><div class="line">           console.log(&quot;数据库连接失败！&quot;);  </div><div class="line">       &#125;else&#123;  </div><div class="line">           console.log(&quot;数据库连接成功！&quot;);  </div><div class="line">       &#125;  </div><div class="line">   &#125;);</div></pre></td></tr></table></figure></p>
 <blockquote>
-<pre><code>1、协议
-2、域名
-3、端口号
+<pre><code>192.168.1.101是本机的IP地址，test是自己建的数据库名称
 </code></pre></blockquote>
-<p>上面三个部分完全相同属于同源策略，我们使用AJAX获取数据；只要有一个不一样的，就属于非同源，我们一般使用JSONP来获取数据。就比如上面这两个地址，他们的协议（https和https）、域名（www.zhihu.com和github.com）、端口号（443和443）端口号和域名不一样，因此想要在当前页面中获取这个数据请求的地址需要使用非同源策略。</p>
-<h2 id="JSONP的原理"><a href="#JSONP的原理" class="headerlink" title="JSONP的原理"></a>JSONP的原理</h2><p>JSOPN是利用在JavaScript中的script标签的特性，在script的世界中，没有跨域同源一说，只要你给它的SRC属性中的地址是一个合法的地址，script都可以把对应的内容请求回来。</p>
-<p><strong>JSONP就是利用了这个原理(JSONP请求一定需要对方的服务器做支持才可以)</strong>：</p>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><blockquote>
+<p>MongoDB—是一个对象数据库，没有表行等概念，也没有固定的模式和结构，所有的数据以Document(以下简称文档)的形式存储(Document,就是一个关联数组的对象，它的内部由属性组成，它的内部由属性组成，一个属性对应的值可能是一个数，字符串，日期、数组、日期、组成、甚至是一个嵌套的文档。)，后面我们会学习如何创建并插入内容。<br>在MongoDB中，多个Document可以组成Collection（以下简称集合），多个集合可以组成数据。 </p>
+<p>文档–是MongoDB的核心概念，是键值对的一个有序集，在JavaScript里文档被表示成对象，同时他也是MongoDB中数据的基本单元，非常类似于关系型数据库管理系统中的行，但更具表现力。集合–由一组文档组成，如果将MongoDB中的一个文档比喻成关系型数据库中的一行，那么集合相当于一张表。如果我们通过MongoDB去创建一个集合并对其进行增删改查，该怎么实现呢，到这里我们就先了解Schema(数据属性模型)Model、Entity。</p>
+</blockquote>
+<p><strong>Schema简述</strong></p>
+<p>Schema——一种以文件的形式存储的数据模型架构，无法直接通往数据库端，也就是说它不具备对数据库的操作能力，仅仅是数据库模型在程序片段的一种表现，可以说是数据属性模型(传统意义的表结构)，又或者是”集合”的模型骨架。<br>代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var PersonSchema=new mongoose.Schema(&#123;  </div><div class="line">   name:&#123;type:String&#125;,  </div><div class="line">   age:&#123;type:Number,default:0&#125;,  </div><div class="line">   time:&#123;type:Date,default:Date.now&#125;,  </div><div class="line">   email:&#123;type:String,default:&quot;&quot;&#125;  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <blockquote>
-<pre><code>1、我们首先把需要请求数据的那个API数据接口的地址，赋值给script的SRC
-2、把当前页面中的某一个函数名当做参数值传递给需要跨域请求数据的服务器（URL问号传参一
-般都是这么写:canllback=fn）
-3、服务器接到你的请求之后，需要进行特殊的处理：把你传递进来的函数名和他需要给你的数据
-拼接成一个字符串，例如：我们传递进去的函数名是fn，它准备好的数据是&apos;fn(需要给我们的数
-据)&apos;；
-4、最后服务器把准备的数据通过HTTP协议返回给客户端，其实就是让我们的fn执行，而且还给fn
-传递了一堆数据，那些数据就是我们想要的；
+<pre><code>基本属性类型有:字符串、日期型、数值型、布尔型(Boolean)、null、数组、内嵌文档等。
 </code></pre></blockquote>
-<p>比如下面这个例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;  </div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;  </div><div class="line">    function fn(data)&#123;  </div><div class="line">        console.log(data);  </div><div class="line">   &#125;  </div><div class="line">&lt;/script&gt;  </div><div class="line">&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot; src=&quot;http://  </div><div class="line">matchweb.sports.qq.com/kbs/calendar?columnId=100000&amp;callback=fn&quot;&gt;    </div><div class="line">&lt;/script&gt;  </div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
-<p>在谷歌控制台中的输出入下图所示：<img src="http://oyh928sxz.bkt.clouddn.com/JSONP.png" alt="JSONP"></p>
-<h2 id="jQuery的AJAX和JSONP调用"><a href="#jQuery的AJAX和JSONP调用" class="headerlink" title="jQuery的AJAX和JSONP调用"></a>jQuery的AJAX和JSONP调用</h2><p><strong>AJAX请求</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;../js/jquery-3.2.1.js&quot; charset=&quot;UTF-8&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">        $.ajax(&#123;</div><div class="line">            url:&quot;地址&quot;,</div><div class="line">            type:&quot;请求方式&quot;,</div><div class="line">            dataType:&quot;json&quot;,</div><div class="line">            data:null,//-&gt;使用post请求是非服务器传递的内容</div><div class="line">            async:true,//-&gt;同步还是异步，默认是异步</div><div class="line">            cache:false,//设定GET请求的时候不走缓存数据，原理其实就是在URL末尾加随机数，默认值是true</div><div class="line">            timeout:1000,//设置超时时间 一般都设定3000ms，超过时间之后就跑到error</div><div class="line">            success:function(data)&#123;//-&gt;data是请求回来的数据</div><div class="line">                console.log(data);</div><div class="line">            &#125;,</div><div class="line">            error:function()&#123;&#125;,//请求失败的时候执行这个</div><div class="line">        &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p><strong>JSONP请求</strong><br>JSONP都是GET和异步请求的，不存在其他的请求方式和同步请求，而且jQuery会默认就会给JSONP的请求清除缓存</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;../js/jquery-3.2.1.js&quot; charset=&quot;UTF-8&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">      $.ajax(&#123;</div><div class="line">        url: &quot;请求地址&quot;,</div><div class="line">        dataType: &quot;jsonp&quot;,</div><div class="line">        jsonpCallback: &quot;fn&quot;,//-&gt;自定义传递给服务器的函数名，而不是使用jQuery自动生成的</div><div class="line">        jsonp:&quot;cb&quot;,//-&gt;把传递函数名的那个形参callback变为cb</div><div class="line">        success: function (data) &#123;</div><div class="line">            console.log(data);</div><div class="line">        &#125;</div><div class="line">    &#125;);  </div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p><strong>Model简述</strong></p>
+<blockquote>
+<p>Model–由Schema构造生成的模型，除了Schema定义的数据库骨架以外，还具有数据库操作的行为，类似于管理数据库的属性，行为的类。</p>
+</blockquote>
+<p>如何通过Schema来创建Mode呢，如下实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var db=mongoose.connect(&quot;mongodb://192.168.1.103:27017/test&quot;);</div></pre></td></tr></table></figure>
+<p>创建Model </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var PersonModel=db.model(&quot;person&quot;,PersonSchema);</div></pre></td></tr></table></figure>
+<p>person:数据库中集合的名称，当我们对其添加数据时如果person已经存在，则会保存到其目录下，如果未存在，则会创建person集合，然后保存数据。<br>拥有了Model,我们也就拥有了操作数据库的能力<br>如果你想对某个集合有所作为，那就交给Model来处理吧，创建一个Model模型，我们需要指定:<br>&emsp;1、集合名称<br>&emsp;2、集合的Schema结构对象，满足这两个条件，我们就可以操作数据库了  、</p>
+<p><strong>Entity简述</strong></p>
+<p>Entity—由Model创建的实体，使用save方法保存数据，Model和Entity都能影响数据库的操作，但Model比Entity更具操作性。</p>
+<p>使用Model创建Entity,如下实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var PersonEntity=new PersonModel(&#123;  </div><div class="line">     name:&quot;zhangsan&quot;,  </div><div class="line">     age:6,  </div><div class="line">     email:&quot;zhangsan.com&quot;  </div><div class="line">&#125;);  </div><div class="line">console.log(PersonEntity.name);//zhangsan </div><div class="line">console.log(PersonEntity.age);//6</div></pre></td></tr></table></figure>
+<blockquote>
+<pre><code>创建成功之后，Schema的属性就变成了Model和Entity的公有属性了
+</code></pre></blockquote>
+<h2 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h2><p><strong>查询</strong><br>查询分为很多种类型，入条件查询，过滤查询等等，今天只学习最基本的，现在先来看最基本的find查询</p>
+<p>1、find查询:obj.find(查询条件，callback);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">PersonModel.find(&#123;&#125;,function(error,docs)&#123;  </div><div class="line">    //没有向find传递参数，默认的是显示所有文档  </div><div class="line">  &#125;);  </div><div class="line"></div><div class="line">  PersonModel.find(&#123;&quot;age&quot;:6&#125;,function(error,docs)&#123;  </div><div class="line">      if(error)&#123;  </div><div class="line">      console.log(&quot;error:&quot;+error);  </div><div class="line">      &#125;else&#123;  </div><div class="line">      console.log(docs);//docs:age为6的所有文档  </div><div class="line">      &#125;  </div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<p><strong>Model保存方法</strong></p>
+<p>Model提供了一个create方法来对数据进行保存，下面我们来看一下实例:  </p>
+<blockquote>
+<pre><code>Model.create(文档数据,callback);   
+</code></pre></blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">PersonModel.create(&#123;name:&quot;test&quot;,age:7&#125;,function(error,doc)&#123;  </div><div class="line">    if(error)&#123;  </div><div class="line">    console.log(error);  </div><div class="line">    &#125;else&#123;  </div><div class="line">    console.log(doc);</div><div class="line">    &#125;  </div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<p><strong>entity保存方法</strong></p>
+<p>entity也提供的对数据的保存方法和Model提供保存方法类似</p>
+<blockquote>
+<pre><code>Entity.save(文档数据,callback);
+</code></pre></blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var PersonEntity=new PersonModel(&#123;name:&quot;test&quot;,age:9&#125;);  </div><div class="line">    PersonEntity.save(function(error,doc)&#123;  </div><div class="line">    if(error)&#123;  </div><div class="line">        console.log(error);  </div><div class="line">    &#125;else&#123;  </div><div class="line">        console.log(doc);  </div><div class="line">    &#125;  </div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<pre><code>model调用的是create方法，entity调用的是save方法
+</code></pre></blockquote>
+<h2 id="数据更新"><a href="#数据更新" class="headerlink" title="数据更新"></a>数据更新</h2><p>实例:Model.update(查询条件，更新对象，callback);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var condition=&#123;name:&quot;Zhangsan&quot;&#125;;  </div><div class="line">var update=&#123;$set:&#123;age:100&#125;&#125;;  </div><div class="line">PersonModel.update(condition,update,function(error)&#123;  </div><div class="line">    if(error)&#123;  </div><div class="line">       console.log(error);  </div><div class="line">    &#125;else&#123;  </div><div class="line">      console.log(&apos;Update success&apos;);  </div><div class="line">    &#125;  </div><div class="line">&#125;)；</div></pre></td></tr></table></figure>
+<blockquote>
+<pre><code>更新后find()一下，此时数据已经修改成功 了!请注意如果匹配到多条记录，默认只更新一条，
+如果要更新匹配到所有记录的话需要加一个参数{multi:true}。
+</code></pre></blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var condition=&#123;name:&quot;Zhangsan&quot;&#125;;  </div><div class="line">var update=&#123;$set:&#123;age:100&#125;&#125;;  </div><div class="line">PersonModel.update(condition,update,&#123;multi:true&#125;,function(error)&#123;  </div><div class="line">    if(error)&#123;  </div><div class="line">      console.log(error);  </div><div class="line">    &#125;else&#123;  </div><div class="line">      console.log(&apos;Update success&apos;);  </div><div class="line">    &#125;  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><strong>删除数据</strong><br>实例：Model.remove(查询条件，callback); </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var condition=&#123;name:&quot;Zhangsan&quot;&#125;;  </div><div class="line">PersonModel.remove(conditions,function(error)&#123;  </div><div class="line">    if(error)&#123;  </div><div class="line">      console.log(error);  </div><div class="line">    &#125;else&#123;  </div><div class="line">      console.log(&quot;Delete success&quot;);  </div><div class="line">    &#125;;  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<pre><code>和update类似吧，有了remove方法我们就可以呀进行删除操作了。
+</code></pre></blockquote>
+<h2 id="简单查询"><a href="#简单查询" class="headerlink" title="简单查询"></a>简单查询</h2><p><strong>简介</strong><br>查询就是返回一个集合中的文档的子集，Mongoose模型提供了find、findOne、和findById方法用于文档查询我们这里先添加一些数据;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">PersonModel.create([</div><div class="line">  &#123;name:&apos;name1&apos;,age:1&#125;,</div><div class="line">  &#123;name:&apos;name2&apos;,age:2&#125;,</div><div class="line">  &#123;name:&apos;name3&apos;,age:3&#125;,</div><div class="line">  &#123;name:&apos;name4&apos;,age:4&#125;,</div><div class="line">  &#123;name:&apos;name5&apos;,age:5&#125;,</div><div class="line">  &#123;name:&apos;name6&apos;,age:6&#125;,</div><div class="line">  &#123;name:&apos;name7&apos;,age:7&#125;,</div><div class="line">  &#123;name:&apos;name8&apos;,age:8&#125;,</div><div class="line">  &#123;name:&apos;name9&apos;,age:9&#125;,</div><div class="line">  &#123;name:&apos;name10&apos;,age:10&#125;</div><div class="line">],function(error,docs)&#123;</div><div class="line">    if(error)&#123;</div><div class="line">      console.log(error);</div><div class="line">   &#125;else&#123;</div><div class="line">      console.log(&quot;save ok&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><strong>属性过滤</strong><br>find(Condition,field,callback);field省略或为Null,则返回所有属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//返回只包好name,age两个键的所有记录  </div><div class="line">PersonModel.find(&#123;&#125;,&#123;name:1,age:1,_id:0&#125;,function(err,docs)&#123;  </div><div class="line">  //docs 查询结果集  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<pre><code>说明:我们只需要把显示属性设置为大于零的数就可以了，当然1是最好理解的，_id是默认返回，如
+果不要显示加上(&quot;_id&quot;:0),但是，对其他不需要显示的属性且不是_id,如果设置为0的话将会抛出
+异常或查询无果。
+</code></pre></blockquote>
+<ul>
+<li>findOne查询单条</li>
+</ul>
+<p>返回查询结果<br>1、单条数据 findOne(Conditions,callback);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">PersonModel.findOne(&#123;age:6&#125;,function(err,doc)&#123;  </div><div class="line">     //查询符合age等于6的第一条数据  </div><div class="line">     //doc是查询结果  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>findById(按ID单条数据)，与findOne相同，但它只接收文档的_id作为参数，返回单个文档。<br>1、按ID单条数据findById(_id,callback);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">PersonModel.findById(person._id,function(err,doc)&#123;  </div><div class="line">  //doc 查询结果文档  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="高级查询"><a href="#高级查询" class="headerlink" title="高级查询"></a>高级查询</h2><p><strong>$gt(大于)、$lt(小于)</strong><br>查询时我们经常会碰到要根据，某些字段进行条件筛选查询，比如说Number类型，怎么办了，我们可以使用$gt、$lte(&lt;=),$gte(&gt;=)操作进行排除性查询，如下示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Model.find(&#123;&quot;age&quot;&#125;:&#123;&quot;$gt&quot;:6&#125;,function(error,docs)&#123;  </div><div class="line">  //查询所有age大于6的数据  </div><div class="line">&#125;);  </div><div class="line">Model.find(&#123;&quot;age&quot;:&#123;&quot;$lt&quot;:6&#125;&#125;,function(error,docs)&#123;  </div><div class="line">  //查询所有age小于6的数据  </div><div class="line">&#125;);  </div><div class="line">Model.find(&#123;&quot;age&quot;:&#123;&quot;$gt&quot;:6,&quot;lt&quot;:9&#125;&#125;,function(error,docs)&#123;  </div><div class="line">  //查询所有age大于6小于9的数据  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><strong>$ne(不等于)</strong> </p>
+<p>$ne(!=)操作符的含义相当于不等于、不包含，查询时我们可通过它进行条件判定:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Model.find(&#123;&quot;age&quot;:&#123;&quot;$ne&quot;:6&#125;&#125;,function(error,docs)&#123;  </div><div class="line">  //查询所有age不等于6的数据  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<pre><code>$ne可以匹配单个值，也可以匹配不同类型的值
+</code></pre></blockquote>
+<p><strong>$in(包含)</strong></p>
+<p>和$ne操作符相反，$in相当于包含、等于、查询时查找包含于指定字段条件的数据，具体使用方法如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Model.find(&#123;&quot;age&quot;:&#123;&quot;$in&quot;:6&#125;&#125;,function(error,docs)&#123;  </div><div class="line">  //查询所有age等于6的数据  </div><div class="line">&#125;);  </div><div class="line"></div><div class="line">Model.find(&#123;&quot;age&quot;:&#123;&quot;$ne&quot;:[6,7]&#125;&#125;,function(error,docs)&#123;  </div><div class="line">  //可以把多个值组织成一个数组  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><strong>$or(或者)</strong><br>$or操作符，可以查询多个键值的任意给定值，只要满足其中一个就可返回，用于存在多个条件判定的情况下使用，如下示例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Model.find(&#123;&quot;$or&quot;:[&#123;&quot;name&quot;:&quot;name1&quot;&#125;,&#123;&quot;age&quot;:6&#125;]&#125;,function(error,docs)&#123;  </div><div class="line">//查询name为name1或age为6的全部文档  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><strong>$exists(是否存在)</strong><br>$exists操作符，用于判断某些关键字是否存在来进行条件查询，如下示例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Model.find(&#123;name:&#123;$exists:true&#125;&#125;,function(error,docs)&#123;  </div><div class="line">//查询所有存在name的文档  </div><div class="line">&#125;);  </div><div class="line"></div><div class="line">Model.find(&#123;email:&#123;$exists:false&#125;&#125;,function(error,docs)&#123;  </div><div class="line">//查询所有不存在email的文档  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="游标操作"><a href="#游标操作" class="headerlink" title="游标操作"></a>游标操作</h2><p>简介<br>数据库用游标返回find的执行结果，客户端对游标的实现通常能够对最终的结果进行有效的控制，可以限制结果的数量，略过部门结果，根据任意键任意顺序的组合对结果进行各种排序，或者是执行其他操作</p>
+<p>最常用的选项查询就是限制返回结果的数量(limit函数)、忽略一点数量的结果(skip函数)以及排序(sort函数)，通过它来限制结果数量</p>
+<p>limit函数的基本用法<br>在查询操作中，有时数据量会很大，这时我们就需要对返回结果的数量进行限制，那时我们就可以使用limit函数，通过它来限制结果数量<br>1、限制数量:find(Condition,fields,options,callback); </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Model.find(&#123;&#125;,null,&#123;limit:20&#125;,function(err,docs)&#123;  </div><div class="line">console.log(docs)  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>如果匹配到的结果不到20个，则返回匹配数量的结果，也就是说limit函数指定的是上限而非下限</p>
+<p>skip函数的基本用法<br>skip和limit类似，都是对返回结果的数量进行操作，不同的是skip函数的功能是略过指定数量的匹配结果，返回余下的查询结果，如下实例:<br>1、跳过数量:find(Conditions,fields,options,callback);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Model.find(&#123;&#125;,null,&#123;skip:4&#125;,function(err,docs)&#123;</div><div class="line">console.log(docs)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<pre><code>如果查询结果数量中少于4个的话，则不会返回任何结果。
+</code></pre></blockquote>
+<p><strong>sort函数基本用法</strong><br>sort函数可以将查询结果数据进行排序操作，该函数的参数是一个或多个键值对，键代表排序键名，值代表排序的方向1是升序，-1是降序。<br>1、结果排序:find(Conditions,fields,options,callback);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Model.find(&#123;&#125;,null,&#123;sort:&#123;age:-1&#125;&#125;,function(err,docs)&#123;  </div><div class="line">//查询所有的数据，并按照降序顺序返回数据docs  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<pre><code>sort函数可以根据用户自定义条件有选择性的来进行排序显示数据结果
+</code></pre></blockquote>
+<h2 id="扩展方法"><a href="#扩展方法" class="headerlink" title="扩展方法"></a>扩展方法</h2><p><strong>ObjectId简述</strong></p>
+<p>存储的mongodb集合的中的每个文档(document)都有一个默认的主键，这个主键的名称是固定的，他可以是mongodb支持的任何数据类型，默认是ObjectId,该类型的值由系统自己生成，从某种意义上集合不会重复：</p>
+<p>MySQL等关系数据可的主键都是自增的，但在分布式的环境下，这种方法就不可行了，会产生冲突，为此，MongoDB采用了一个称之为Objectid的类型做主键，Objectid是一个12字节的BSON类型的字符串，按照字节排序，依次代表</p>
+<blockquote>
+<pre><code>4字节：UNIX时间戳
+3字节：运行mongoDB的机器
+2字节:表示生成此_id的进程
+3字节:由一个随机开始的计数器生成的值
+</code></pre></blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var mongoose=require(&quot;mongoose&quot;);  </div><div class="line">var personSchema=new mongoose.Schema(&#123;&#125;);//默认_id:ObjectId类型</div></pre></td></tr></table></figure>
+<p>每一个文档都有一个特殊的键”_id”,这个键在文档所属的集合中是唯一的。<br>Shema添加属性值:<br>前面我们已经讲述了如何如何定义了一个Schema并赋予某些属性值，那能不能先定义后添加属性了，答案是可以的，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var mongoose=require=require(&quot;mongoose&quot;);  </div><div class="line">var PersonSchema=new mongoose.Schema;  </div><div class="line">PersonSchema.add(&#123;name:&quot;String&quot;,email:&quot;String&quot;,age:&quot;Number&quot;&#125;);</div></pre></td></tr></table></figure>
+<p>实例方法:<br>有的时候，我们需要创造的Schema不仅要为后面的Model和Entity提供公共属性，还要提供公共方法，那怎么在Schema下创建一个实例方法了，请看实例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var mongoose=require(&quot;mongoose&quot;);  </div><div class="line">var PersonSchema=new mongoose.Schema(&#123;name:String&#125;);  </div><div class="line">PersonSchema.method(&apos;greet&apos;,function()&#123;  </div><div class="line">console.log(&quot;how are you&quot;);  </div><div class="line">&#125;);  </div><div class="line">var Person=mongoose.model(&apos;person&apos;,PersonSchema);  </div><div class="line">var person=new Person();  </div><div class="line">person.greet();//how are you</div></pre></td></tr></table></figure>
+<p><strong>Schema静态方法</strong><br>如下实例； </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var mongoose=require(&quot;mongoose&quot;);  </div><div class="line">var db=mongoose.connect(&quot;mongodb://192.168.1.103:27017/test&quot;);  </div><div class="line">var PersonSchema=new mongoose.Schema(&#123;  </div><div class="line">    name:&#123;type:String&#125;,  </div><div class="line">    age:&#123;type:Number,default:0&#125;,  </div><div class="line">  &#125;  </div><div class="line">);  </div><div class="line">PersonSchema.static(&quot;findByName&quot;,function(name,callback)&#123;  </div><div class="line">   return this.find(&#123;name:name&#125;,callback)  </div><div class="line">&#125;);  </div><div class="line">var PersonModel=db.model(&quot;person&quot;,PersonSchema);  </div><div class="line"></div><div class="line">PersonSchema.findName(&quot;zfpx&quot;,function(err,docs)&#123;  </div><div class="line">//docs所有名字叫zfpx的结果集  </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -488,9 +586,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
-          
-            <a href="/tags/JSONP/" rel="tag"># JSONP</a>
+            <a href="/tags/Node-js，mongoDB，Mongose/" rel="tag"># Node.js，mongoDB，Mongose</a>
           
         </div>
       
@@ -503,8 +599,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/31/ajax/" rel="next" title="Ajax">
-                <i class="fa fa-chevron-left"></i> Ajax
+              <a href="/2017/11/25/jQuery/" rel="next" title="jQuery源码解读和常用方法">
+                <i class="fa fa-chevron-left"></i> jQuery源码解读和常用方法
               </a>
             
           </div>
@@ -512,10 +608,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/04/常用的六种继承方式/" rel="prev" title="JavaScript中常用的六种继承方式">
-                JavaScript中常用的六种继承方式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -716,7 +808,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同源和非同源的区别"><span class="nav-number">2.</span> <span class="nav-text">同源和非同源的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSONP的原理"><span class="nav-number">3.</span> <span class="nav-text">JSONP的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery的AJAX和JSONP调用"><span class="nav-number">4.</span> <span class="nav-text">jQuery的AJAX和JSONP调用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装使用"><span class="nav-number">2.</span> <span class="nav-text">安装使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合"><span class="nav-number">3.</span> <span class="nav-text">集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础操作"><span class="nav-number">4.</span> <span class="nav-text">基础操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据更新"><span class="nav-number">5.</span> <span class="nav-text">数据更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单查询"><span class="nav-number">6.</span> <span class="nav-text">简单查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级查询"><span class="nav-number">7.</span> <span class="nav-text">高级查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#游标操作"><span class="nav-number">8.</span> <span class="nav-text">游标操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展方法"><span class="nav-number">9.</span> <span class="nav-text">扩展方法</span></a></li></ol></div>
             
 
           </div>
