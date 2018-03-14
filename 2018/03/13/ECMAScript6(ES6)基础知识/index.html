@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="ES6中的let和const1、let不存在变量提升机制 123456789101112131415161718192021console.log(str);//=&amp;gt;undefined  console.log(fn);//=&amp;gt;fn本身  console.log(avg);//=&amp;gt;undefinedconsole.log(sum);//=&amp;gt;Uncaught Referenc">
+<meta name="description" content="ES6中的let和const1、let不存在变量提升机制">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ECMAScript6(ES6)基础知识">
 <meta property="og:url" content="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2018/03/13/ECMAScript6(ES6)基础知识/index.html">
 <meta property="og:site_name" content="fanzhanxiang&#39; Blog">
-<meta property="og:description" content="ES6中的let和const1、let不存在变量提升机制 123456789101112131415161718192021console.log(str);//=&amp;gt;undefined  console.log(fn);//=&amp;gt;fn本身  console.log(avg);//=&amp;gt;undefinedconsole.log(sum);//=&amp;gt;Uncaught Referenc">
+<meta property="og:description" content="ES6中的let和const1、let不存在变量提升机制">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-14T04:22:10.100Z">
+<meta property="og:updated_time" content="2018-03-14T04:51:44.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ECMAScript6(ES6)基础知识">
-<meta name="twitter:description" content="ES6中的let和const1、let不存在变量提升机制 123456789101112131415161718192021console.log(str);//=&amp;gt;undefined  console.log(fn);//=&amp;gt;fn本身  console.log(avg);//=&amp;gt;undefinedconsole.log(sum);//=&amp;gt;Uncaught Referenc">
+<meta name="twitter:description" content="ES6中的let和const1、let不存在变量提升机制">
 
 
 
@@ -415,6 +415,7 @@
 
       
         <h2 id="ES6中的let和const"><a href="#ES6中的let和const" class="headerlink" title="ES6中的let和const"></a>ES6中的let和const</h2><p><strong>1、let不存在变量提升机制</strong></p>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">console.log(str);//=&gt;undefined  </div><div class="line"></div><div class="line">console.log(fn);//=&gt;fn本身  </div><div class="line"></div><div class="line">console.log(avg);//=&gt;undefined</div><div class="line"></div><div class="line">console.log(sum);//=&gt;Uncaught ReferenceError: sum is not defined</div><div class="line"></div><div class="line">console.log(num);//=&gt;Uncaught ReferenceError: num is not defined</div><div class="line"></div><div class="line">var str = &apos;123&apos;;   </div><div class="line">let num = 12;    </div><div class="line">function fn() &#123;&#125;   </div><div class="line">var avg = function () &#123;&#125;;   </div><div class="line">let sum = function () &#123;&#125;;   </div><div class="line">//=&gt;ES6中只提供了创建变量的新语法标准（let），创建函数还是沿用ES5中的function（还会存在变量提升），如果想让函数也不存在变量提升，都使用函数表达式赋值的方式操作：</div><div class="line">let FN=function()&#123;&#125;//=&gt;创建函数     </div><div class="line">let xxx=xxx;//=&gt;创建变量    </div><div class="line">(function()&#123;   </div><div class="line">&#125;)();//=&gt;自执行函数;    </div><div class="line">//=&gt;好处：此时代码中就不要在考虑变量提升了，只要这样处理，没有所谓的变量提升</div></pre></td></tr></table></figure>
 <p><strong> 2、使用let定义的变量不允许在<code>同一个作用域中</code>重复声明</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">var num2 = 12;  </div><div class="line">var num2 = 13;  </div><div class="line">console.log(num2);//=&gt;13  </div><div class="line">  </div><div class="line">let str = &apos;你好&apos;;  </div><div class="line">let str = &apos;世界&apos;;  </div><div class="line">console.log(str);//=&gt;Uncaught SyntaxError: Identifier &apos;str&apos; has already been declared  当前报错,上面代码也不会执行(在JS代码执行之前就已经知道有重复声明的了，也就是浏览器依然存在类似于变量提升的机制：在JS代码之前先把所有LET声明的变量过一遍，发现有重复的直接报错)  </div><div class="line"></div><div class="line">let num = 12;   </div><div class="line">num = 13;   </div><div class="line">console.log(num);//=&gt;13 LET不允许重复被声明，但是允许重新赋值   </div><div class="line"></div><div class="line">var att=200;    </div><div class="line">let att=100;//=&gt;Uncaught SyntaxError: Identifier &apos;att&apos; has already been declared 不管你之前使用什么方式在当前作用域中声明的变量，再使用let声明的时候都会报错  </div><div class="line"></div><div class="line">let num = 12,  </div><div class="line">    fn = function () &#123;          </div><div class="line">         let num = 13;  </div><div class="line">    &#125;;  </div><div class="line">     console.log(num);//=&gt;12 当前作用域下别重复声明即可(不同作用域中的变量是自己私有的,名字重复没有关系)    </div><div class="line">let att = 13,  </div><div class="line">    sum = function () &#123;   </div><div class="line">        att = 14;   </div><div class="line">    &#125;;   </div><div class="line">sum();   </div><div class="line">console.log(att);   </div><div class="line">//=&gt;let也存在私有变量和作用域链的概念，和ES5中基本上差不多  =&gt;14</div></pre></td></tr></table></figure>
