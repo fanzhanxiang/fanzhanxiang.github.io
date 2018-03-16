@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="fanzhanxiang&#39; Blog">
 <meta property="og:description" content="fs模块是操作文件的模块，里面有很多种方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-16T12:13:02.053Z">
+<meta property="og:updated_time" content="2018-03-16T12:36:03.953Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="fs模块基础知识">
 <meta name="twitter:description" content="fs模块是操作文件的模块，里面有很多种方法">
@@ -419,7 +419,7 @@
 <pre><code>readFile是异步读取文件，会在readFileSync之后执行
 readFileSync同步读取文件
 </code></pre></blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var fs=require(&apos;fs&apos;);  //注:index.txt里面存放的是123   </div><div class="line">fs.readFile(&apos;index.txt&apos;,&apos;utf8&apos;,function(err,data)&#123;console.log(data)&#125;);//-&gt;123  </div><div class="line">var data=fs.readFileSync(&apos;index.txt&apos;);//-&gt;（不给编码的话返回的是一个buffer）   </div><div class="line">console.log(data);&lt;Buffer 31 32 33&gt;  </div><div class="line">console.log(fs.readFileSync(&apos;index.txt&apos;));&lt;Buffer 31 32 33&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var fs=require(&apos;fs&apos;);  //注:index.txt里面存放的是123   </div><div class="line">fs.readFile(&apos;index.txt&apos;,&apos;utf8&apos;,function(err,data)&#123;console.log(data)&#125;);//-&gt;123  </div><div class="line">var data=fs.readFileSync(&apos;index.txt&apos;);//-&gt;（不给编码的话返回的是一个buffer）   </div><div class="line">console.log(data);&lt;Buffer 31 32 33&gt;  </div><div class="line">console.log(fs.readFileSync(&apos;index.txt&apos;));//-&gt;&lt;Buffer 31 32 33&gt;</div></pre></td></tr></table></figure>
 <blockquote>
 <pre><code>控制台中依次输出的是&quot;&lt;Buffer 31 32 33&gt;&quot;,&quot;&lt;Buffer 31 32 33&gt;&quot;, &quot;123&quot;
 证明了readFileSync同步读取文件会先执行，readFile异步读取文件会后执行
