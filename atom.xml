@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/"/>
-  <updated>2018-04-07T10:47:02.366Z</updated>
+  <updated>2018-04-11T07:38:40.154Z</updated>
   <id>https://github.com/fanzhanxiang/fanzhanxiang.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>path.resolve的简单用法</title>
+    <link href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2018/04/11/path.resolve%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/"/>
+    <id>https://github.com/fanzhanxiang/fanzhanxiang.github.io/2018/04/11/path.resolve的简单用法/</id>
+    <published>2018-04-11T07:08:07.944Z</published>
+    <updated>2018-04-11T07:38:40.154Z</updated>
+    
+    <content type="html"><![CDATA[<p>path.resolve是在node.js中比较常用的一个语法，在开发中还是比较常用的。</p><h2 id="方法说明"><a href="#方法说明" class="headerlink" title="方法说明"></a>方法说明</h2><p>将参数 to 位置的字符解析到一个绝对路径里。</p><p><strong>语法</strong></p><blockquote><pre><code>path.resolve([from ...], to)</code></pre></blockquote><p><strong>接收参数</strong>    </p><blockquote><pre><code>from                       源路径 to                         将被解析到绝对路径的字符串</code></pre></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const path=require(&apos;path&apos;);  </div><div class="line">//在D盘下操作   </div><div class="line">console.log(path.resolve(&apos;/hello/src&apos;,&apos;./dist&apos;));//-&gt;D:\hello\src\dist   </div><div class="line">//当前绝对路径是:&apos;D:\gulp\app&apos;   </div><div class="line">console.log(path.resolve(&apos;./hello&apos;, &apos;world/hi/&apos;, &apos;../dest/left&apos;));//D:\gulp\app\hello\world\dest\left</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;path.resolve是在node.js中比较常用的一个语法，在开发中还是比较常用的。&lt;/p&gt;
+&lt;h2 id=&quot;方法说明&quot;&gt;&lt;a href=&quot;#方法说明&quot; class=&quot;headerlink&quot; title=&quot;方法说明&quot;&gt;&lt;/a&gt;方法说明&lt;/h2&gt;&lt;p&gt;将参数 to 位置的
+      
+    
+    </summary>
+    
+      <category term="Node.js" scheme="https://github.com/fanzhanxiang/fanzhanxiang.github.io/categories/Node-js/"/>
+    
+    
+      <category term="Node.js" scheme="https://github.com/fanzhanxiang/fanzhanxiang.github.io/tags/Node-js/"/>
+    
+  </entry>
   
   <entry>
     <title>a标签里放块级元素</title>
@@ -451,28 +477,6 @@
     <summary type="html">
     
       &lt;p&gt;forEach和map方法都是用来遍历数组中的每一项的;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="https://github.com/fanzhanxiang/fanzhanxiang.github.io/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="https://github.com/fanzhanxiang/fanzhanxiang.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript的同步和异步编程</title>
-    <link href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/05/JS%E7%9A%84%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"/>
-    <id>https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/05/JS的同步和异步编程/</id>
-    <published>2017-11-05T01:28:49.753Z</published>
-    <updated>2017-11-05T01:30:59.998Z</updated>
-    
-    <content type="html"><![CDATA[<p>JS中的两种编程思想：同步、异步。<br><a id="more"></a></p><h2 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h2><p>同步编程:上一件事情没有完成，继续做上一件事情，只有上一件事情完成了，才会做下一件事情(JS大部分都是同步编程的)。如下面代码：（1）、（2）分别代表第一次和第二次输出。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt;  </div><div class="line">for(var i=0;i&lt;100000;i++)&#123;</div><div class="line">      if(i===99999)&#123;</div><div class="line">           console.log(&quot;循环结束了~~&quot;)//-&gt;(1)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    console.log(&quot;ok&quot;);//-&gt;(2)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><p>原因:for循环就是同步编程的，只有循环结束后，才会执行下面的代码,因此会先输出前面的，再输出后面的。</p><p>再比如下面这段代码:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt;  </div><div class="line">while (1)&#123;</div><div class="line"></div><div class="line"> &#125;</div><div class="line">    console.log(&quot;ok&quot;);//-&gt;不会有结果输出，并且浏览器还会崩溃</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><p>原因:因为上面的循环是死循环，循环永远不会结束,JS不会跳过上面那段循环来执行下面的循环。</p><h2 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h2><p>解读：首先规划要做一件事情，但是不是立马去执行这件事情，需要等一定的时间，这样的话我们不会继续等着它执行，而是继续执行下面的操作，”只有下面的事情都处理完成了”.只有当下面的事情都处理完成了，才会返回头处理之前的事情；如果下面的事情没有处理完成，不管之前的事情有没有处理完成，都踏踏实实的给我等着。在JS中异步编程只有四种情况：定时器都是异步编程的、所有事件绑定都是异步编程的、AJAX读取数据的时候，我们一般设定为异步编程、回调函数也是异步编程的。</p><p>比如下面这段代码:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt;  </div><div class="line">var n=0;</div><div class="line">    window.setTimeout(function()&#123;</div><div class="line">          n++;</div><div class="line">          console.log(n);//-&gt;1(2)</div><div class="line">       &#125;,1000);</div><div class="line">       console.log(n);//-&gt;0(1)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><p>原因:定时器是异步编程的，在1000ms之后再执行定时器中的方法，因此会先输出0，再输出1。</p><p><strong>关于浏览器的最小等待事件问题</strong></p><p>比如下面的这段代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt;  </div><div class="line">var n=0;</div><div class="line">    window.setTimeout(function()&#123;</div><div class="line">        n++;</div><div class="line">        console.log(n);//-&gt;1(2)</div><div class="line">    &#125;,0);</div><div class="line">    console.log(n);//-&gt;0(1)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><p>原因:每一个浏览器对于定时器的等待时间都有一个最小值：谷歌大概:5~6ms,IE大概:13~14ms,如果设置的等待时间小于这个值，不起作用，还是需要等到最小时间才执行；尤其是写0也不是立即执行；</p><p><strong>定时器设置的等待时间不一定就是最后执行的时间</strong></p><p>看下面的这段代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt;  </div><div class="line">    var n=0;</div><div class="line">    window.setTimeout(function()&#123;</div><div class="line">        n++;</div><div class="line">        console.log(n);//-&gt;不执行</div><div class="line">    &#125;,0);</div><div class="line">    console.log(n);//-&gt;0(1)</div><div class="line"></div><div class="line">    while (1)&#123;</div><div class="line">        n++;//-&gt;死循环</div><div class="line">    &#125;</div><div class="line">    console.log(n);//-&gt;不执行</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><p>原因:执行到while的时候出现了死循环，因此定时器里面的方法永远不会执行。</p><p><strong>定时器是谁先到先执行谁</strong></p><p>如下面这段代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt;  </div><div class="line">       var n=0;</div><div class="line">    window.setTimeout(function()&#123;</div><div class="line">        n+=2;</div><div class="line">        console.log(n);//-&gt;7(4)</div><div class="line">    &#125;,20);</div><div class="line">    window.setTimeout(function()&#123;</div><div class="line">        n+=5;</div><div class="line">        console.log(n);//-&gt;5(3)</div><div class="line">    &#125;,5);</div><div class="line">    console.log(n);//-&gt;0(1)</div><div class="line">    for(var i=0;i&lt;10000000;i++)&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    console.log(n);//-&gt;0(2)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><p>原因：JS在执行的时候会有一个类似于设置闹钟的那种机制的任务队列，不是之前设置的闹钟就之前叫，而是不管是什么时候设置的，谁的时间先到了就谁先叫。如图所示。</p><p><img src="http://oyh928sxz.bkt.clouddn.com/%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97.png" alt=""></p><blockquote><pre><code>上面仅仅是讲了定时器这一种异步编程思想，所有事件绑定、AJAX读取数据的时候、回调函数这几种的原理也和定时器的一样</code></pre></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;JS中的两种编程思想：同步、异步。&lt;br&gt;
     
     </summary>
     

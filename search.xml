@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[path.resolve的简单用法]]></title>
+    <url>%2F2018%2F04%2F11%2Fpath.resolve%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[path.resolve是在node.js中比较常用的一个语法，在开发中还是比较常用的。 方法说明将参数 to 位置的字符解析到一个绝对路径里。 语法 path.resolve([from ...], to) 接收参数 from 源路径 to 将被解析到绝对路径的字符串 12345const path=require(&apos;path&apos;); //在D盘下操作 console.log(path.resolve(&apos;/hello/src&apos;,&apos;./dist&apos;));//-&gt;D:\hello\src\dist //当前绝对路径是:&apos;D:\gulp\app&apos; console.log(path.resolve(&apos;./hello&apos;, &apos;world/hi/&apos;, &apos;../dest/left&apos;));//D:\gulp\app\hello\world\dest\left]]></content>
+      <categories>
+        <category>Node.js</category>
+      </categories>
+      <tags>
+        <tag>Node.js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[a标签里放块级元素]]></title>
     <url>%2F2018%2F04%2F07%2Fa%E6%A0%87%E7%AD%BE%E9%87%8C%E6%94%BE%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0%2F</url>
     <content type="text"><![CDATA[HTML5通过更简单的元素引起了一系列的思考，坦诚地讲,这真的是急需的简化。这些简化之一就是能够通过a标签包装像div,h标签(h1…h6),和段落标记P 这些块级元素。你没看错:用一个A标签包裹块级元素(注: 在HTML5以前，a标签属于行内元素，而div,h1,p 等为块级元素，如果强行包裹，可能会被强行截断为多个a标签） 代码示例: 1234567&lt;a href=&quot;http://www.fanzhanxiang.cn&quot;&gt; &lt;h1&gt;a标签&lt;/h1&gt; &lt;div&gt;这是div&lt;/div&gt; &lt;p&gt; 在HTML5以前，a标签属于行内元素，而div,h1,p 等为块级元素，如果强行包裹，可能会被强行截断为多个a标签 &lt;/p&gt; &lt;/a&gt;]]></content>
