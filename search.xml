@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[箭头函数中的this和普通函数中的this对比]]></title>
+    <url>%2F2018%2F04%2F15%2F%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84this%E5%92%8C%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84this%E5%AF%B9%E6%AF%94%2F</url>
+    <content type="text"><![CDATA[ES6中新增了箭头函数这种语法,箭头函数以其简洁性和方便获取this的特性。下面来总结一下他们之间的区别：普通函数下的this 1.在普通函数中的this总是代表它的直接调用者，在默认情况下，this指的是window， 2.在严格模式下,没有直接调用者的函数中的this是 undefined使用 3.call,apply,bind(ES5新增)绑定的,this指的是 绑定的对象 箭头函数中的this 箭头函数没有自己的this, 它的this是继承而来; 默认指向在定义它时所处的对象(宿主对象), 而不是执行时的对象, 定义它的时候,可能环境是window,也有可能是其他的。 在普通函数中,this指向它的直接调用者;如果找不到直接调用者,则是window看下面这段代码 1234function a() &#123; console.log(this); //window &#125; a(); 因为a是一个全局函数，也就是挂载在window对象下的，所以a(),等价于window.a(); 12345678var obj = &#123; say: function () &#123; setTimeout(function () &#123; console.log(this); //window &#125;); &#125; &#125; obj.say(); 定时器中的函数，由于没有默认的宿主对象，所以this指向window 1234567891011var obj = &#123; func: function() &#123;&#125;, say: function () &#123; console.log(this);//obj,此时的this是obj对象 setTimeout(function () &#123; console.log(this); //window that.func(); &#125;); &#125; &#125; obj.say(); 此时say的宿主环境是obj,所以say里面的this是obj,定时器中的函数, 由于没有默认的宿主对象,所以默认this指向window 严格模式下的this 12345function test() &#123; &apos;use strict&apos;; console.log(this); //undefined &#125; test(); 在严格模式下,没有直接调用者的函数中的this是 undefined 1234567 &quot;use strict&quot;; var obj=&#123; say:function()&#123; console.log(this); //obj &#125; &#125;; obj.say(); 有直接调用者的this是它的调用者 箭头函数中的this12345678var obj = &#123; say: function () &#123; setTimeout(() =&gt; &#123; console.log(this);// obj &#125;); &#125; &#125; obj.say(); 此时的 this继承自obj, 指的是定义它的对象obj, 而不是 window! 123456789101112var obj = &#123; say: function () &#123; var f1 = () =&gt; &#123; console.log(this); // obj setTimeout(() =&gt; &#123; console.log(this); // obj &#125;) &#125; f1(); &#125; &#125; obj.say() 因为f1定义时所处的函数 中的 this是指的 obj, setTimeout中的箭头函数this继承自f1, 所以不管有多层嵌套,都是 obj 复杂情况: 普通函数和箭头函数混杂嵌套 123456789101112var obj = &#123; say: function () &#123; var f1 = function () &#123; console.log(this); // window, f1调用时,没有宿主对象,默认是window setTimeout(() =&gt; &#123; console.log(this); // window &#125;) &#125;; f1(); &#125; &#125; obj.say() 结果: 都是 window,因为 箭头函数在定义的时候它所处的环境相当于是window, 所以在箭头函数内部的this函数window]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>ES6</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[path.resolve的简单用法]]></title>
     <url>%2F2018%2F04%2F11%2Fpath.resolve%E7%9A%84%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95%2F</url>
     <content type="text"><![CDATA[path.resolve是在node.js中比较常用的一个语法，在开发中还是比较常用的。 方法说明将参数 to 位置的字符解析到一个绝对路径里。 语法 path.resolve([from ...], to) 接收参数 from 源路径 to 将被解析到绝对路径的字符串 12345const path=require(&apos;path&apos;); //在D盘下操作 console.log(path.resolve(&apos;/hello/src&apos;,&apos;./dist&apos;));//-&gt;D:\hello\src\dist //当前绝对路径是:&apos;D:\gulp\app&apos; console.log(path.resolve(&apos;./hello&apos;, &apos;world/hi/&apos;, &apos;../dest/left&apos;));//D:\gulp\app\hello\world\dest\left]]></content>

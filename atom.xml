@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/"/>
-  <updated>2018-04-11T07:38:40.154Z</updated>
+  <updated>2018-04-15T08:32:12.722Z</updated>
   <id>https://github.com/fanzhanxiang/fanzhanxiang.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>箭头函数中的this和普通函数中的this对比</title>
+    <link href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2018/04/15/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84this%E5%92%8C%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84this%E5%AF%B9%E6%AF%94/"/>
+    <id>https://github.com/fanzhanxiang/fanzhanxiang.github.io/2018/04/15/箭头函数中的this和普通函数中的this对比/</id>
+    <published>2018-04-15T08:32:12.717Z</published>
+    <updated>2018-04-15T08:32:12.722Z</updated>
+    
+    <content type="html"><![CDATA[<p>ES6中新增了箭头函数这种语法,箭头函数以其简洁性和方便获取this的特性。下面来总结一下他们之间的区别：<br><strong>普通函数下的this</strong></p><blockquote><pre><code>1.在普通函数中的this总是代表它的直接调用者，在默认情况下，this指的是window，2.在严格模式下,没有直接调用者的函数中的this是 undefined使用3.call,apply,bind(ES5新增)绑定的,this指的是 绑定的对象</code></pre></blockquote><p><strong>箭头函数中的this</strong></p><blockquote><pre><code>箭头函数没有自己的this, 它的this是继承而来; 默认指向在定义它时所处的对象(宿主对象),而不是执行时的对象, 定义它的时候,可能环境是window,也有可能是其他的。</code></pre></blockquote><h2 id="在普通函数中-this指向它的直接调用者-如果找不到直接调用者-则是window"><a href="#在普通函数中-this指向它的直接调用者-如果找不到直接调用者-则是window" class="headerlink" title="在普通函数中,this指向它的直接调用者;如果找不到直接调用者,则是window"></a>在普通函数中,this指向它的直接调用者;如果找不到直接调用者,则是window</h2><p>看下面这段代码</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function a() &#123; </div><div class="line">   console.log(this);  //window</div><div class="line"> &#125;  </div><div class="line"> a();</div></pre></td></tr></table></figure><blockquote><pre><code>因为a是一个全局函数，也就是挂载在window对象下的，所以a(),等价于window.a(); </code></pre></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;  </div><div class="line">   say: function () &#123;  </div><div class="line">     setTimeout(function () &#123;  </div><div class="line">       console.log(this);   //window   </div><div class="line">     &#125;);  </div><div class="line">   &#125;  </div><div class="line"> &#125;   </div><div class="line"> obj.say();</div></pre></td></tr></table></figure><blockquote><p>   定时器中的函数，由于没有默认的宿主对象，所以this指向window</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;  </div><div class="line">   func: function() &#123;&#125;,  </div><div class="line">   say: function () &#123;  </div><div class="line">     console.log(this);//obj,此时的this是obj对象    </div><div class="line">     setTimeout(function () &#123;   </div><div class="line">       console.log(this);  //window</div><div class="line">       that.func();  </div><div class="line">     &#125;);   </div><div class="line">   &#125;  </div><div class="line"> &#125;  </div><div class="line"> obj.say();</div></pre></td></tr></table></figure><blockquote><pre><code>此时say的宿主环境是obj,所以say里面的this是obj,定时器中的函数,由于没有默认的宿主对象,所以默认this指向window</code></pre><h2 id="严格模式下的this"><a href="#严格模式下的this" class="headerlink" title="严格模式下的this"></a>严格模式下的this</h2></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function test() &#123;  </div><div class="line">  &apos;use strict&apos;;  </div><div class="line">  console.log(this); //undefined   </div><div class="line">&#125;  </div><div class="line">test();</div></pre></td></tr></table></figure><blockquote><pre><code>在严格模式下,没有直接调用者的函数中的this是 undefined</code></pre></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> &quot;use strict&quot;;   </div><div class="line">    var obj=&#123;   </div><div class="line">      say:function()&#123;   </div><div class="line">        console.log(this); //obj    </div><div class="line">      &#125;  </div><div class="line">    &#125;;  </div><div class="line">obj.say();</div></pre></td></tr></table></figure><blockquote><p>  有直接调用者的this是它的调用者</p></blockquote><h2 id="箭头函数中的this"><a href="#箭头函数中的this" class="headerlink" title="箭头函数中的this"></a>箭头函数中的this</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;  </div><div class="line">  say: function () &#123;  </div><div class="line">    setTimeout(() =&gt; &#123;  </div><div class="line">      console.log(this);// obj    </div><div class="line">    &#125;);  </div><div class="line">  &#125;  </div><div class="line">&#125;  </div><div class="line">obj.say();</div></pre></td></tr></table></figure><blockquote><p>   此时的 this继承自obj, 指的是定义它的对象obj, 而不是 window!</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;  </div><div class="line">say: function () &#123;  </div><div class="line">  var f1 = () =&gt; &#123;  </div><div class="line">    console.log(this); // obj  </div><div class="line">    setTimeout(() =&gt; &#123;  </div><div class="line">      console.log(this); // obj  </div><div class="line">    &#125;)  </div><div class="line">  &#125;  </div><div class="line">  f1();  </div><div class="line">  &#125;  </div><div class="line">&#125;   </div><div class="line">obj.say()</div></pre></td></tr></table></figure><blockquote><pre><code>因为f1定义时所处的函数 中的 this是指的 obj, setTimeout中的箭头函数this继承自f1, 所以不管有多层嵌套,都是 obj</code></pre></blockquote><p><strong>复杂情况: 普通函数和箭头函数混杂嵌套</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;  </div><div class="line">say: function () &#123;  </div><div class="line">  var f1 = function () &#123;  </div><div class="line">    console.log(this); // window, f1调用时,没有宿主对象,默认是window  </div><div class="line">    setTimeout(() =&gt; &#123;  </div><div class="line">      console.log(this); // window  </div><div class="line">    &#125;)  </div><div class="line">  &#125;;  </div><div class="line">  f1();  </div><div class="line">  &#125;  </div><div class="line">&#125;  </div><div class="line">obj.say()</div></pre></td></tr></table></figure><blockquote><p>   结果: 都是 window,因为 箭头函数在定义的时候它所处的环境相当于是window,<br>   所以在箭头函数内部的this函数window</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;ES6中新增了箭头函数这种语法,箭头函数以其简洁性和方便获取this的特性。下面来总结一下他们之间的区别：&lt;br&gt;&lt;strong&gt;普通函数下的this&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;pre&gt;&lt;code&gt;1.在普通函数中的this总是代表它的直接调用者
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://github.com/fanzhanxiang/fanzhanxiang.github.io/categories/JavaScript/"/>
+    
+      <category term="ES6" scheme="https://github.com/fanzhanxiang/fanzhanxiang.github.io/categories/JavaScript/ES6/"/>
+    
+    
+      <category term="JavaScript" scheme="https://github.com/fanzhanxiang/fanzhanxiang.github.io/tags/JavaScript/"/>
+    
+      <category term="ES6" scheme="https://github.com/fanzhanxiang/fanzhanxiang.github.io/tags/ES6/"/>
+    
+  </entry>
   
   <entry>
     <title>path.resolve的简单用法</title>
@@ -455,28 +486,6 @@
     
       &lt;p&gt;&lt;strong&gt;JS中的本地存储:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;使用JS向浏览器向浏览器某一个位置中存储一些内容，浏览器即使关闭了，存储了信息也不会销毁，当在重新打开浏览器的时候我们依然可以获取到上一次存储的信息。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="https://github.com/fanzhanxiang/fanzhanxiang.github.io/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="https://github.com/fanzhanxiang/fanzhanxiang.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数组的forEach和map方法解读</title>
-    <link href="https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/05/forEach%E5%92%8Cmap%E6%96%B9%E6%B3%95%E8%A7%A3%E8%AF%BB/"/>
-    <id>https://github.com/fanzhanxiang/fanzhanxiang.github.io/2017/11/05/forEach和map方法解读/</id>
-    <published>2017-11-05T02:45:03.801Z</published>
-    <updated>2017-11-05T02:45:03.811Z</updated>
-    
-    <content type="html"><![CDATA[<p>forEach和map方法都是用来遍历数组中的每一项的;<br><a id="more"></a></p><h2 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h2><blockquote><pre><code>1、数组中有几项，那我们传递进去的匿名函数就需要执行几次2、每一次执行匿名函数的时候，还给其浏览器给其默认传递了三个参数值：数组中的当前项 item，当前项的索引index，原始数组input。3、理论上我们的方法是没有返回值的，仅仅遍历数组中的每一项不对原来的数据进行修改，但是我们可以通过数组的索引来修改原来的数组。</code></pre></blockquote><p>执行下面代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt;  </div><div class="line">    var ary=[12,23,34,45,43];</div><div class="line">    var res=ary.forEach(function (item,index,input) &#123;</div><div class="line">        console.log(arguments);</div><div class="line">        input[index]=item*10;</div><div class="line">    &#125;);</div><div class="line">    console.log(res);//-&gt;undefined</div><div class="line">    console.log(ary);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p><p>控制台中返回结果如图所示:<br><img src="http://oyh928sxz.bkt.clouddn.com/forEach.png" alt=""></p><p>原因：执行了5函数，输出了5次arguments,并且函数在遍历的时候是从索引0开始依次遍历的。</p><h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>map的回调函数中支持return返回值，return的后面是啥，相当于把数组中的这这一项改变为啥(但是并不影响原来的数组，只是相当于把原来的数组克隆一份，把克隆的这一份数组中的对应项改变了)。</p><p>用代码表示为:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt;  </div><div class="line">        var ary=[12,23,34,45,43];</div><div class="line">    var res=ary.map(function (item, index, input) &#123;</div><div class="line">        return item*10;</div><div class="line">    &#125;);</div><div class="line">    console.log(res);//-&gt; [120, 230, 340, 450, 430]</div><div class="line">    console.log(ary);//-&gt;[12, 23, 34, 45, 43]</div><div class="line"></div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>不管是forEach还是map都支持第二个参数，第二个参数的意识是把匿名函数中的this进行修改为第二个参数值。</p><p>代码表示:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; charset=&quot;UTF-8&quot;&gt;  </div><div class="line">     var obj=&#123;name:&quot;abc&quot;&#125;;</div><div class="line">    var ary=[12,23,34,45,43];</div><div class="line"></div><div class="line">    ary.forEach(function (item, index) &#123;</div><div class="line">        console.log(this);</div><div class="line">    &#125;);</div><div class="line">    ary.forEach(function (item, index) &#123;</div><div class="line">        console.log(this);</div><div class="line">    &#125;,obj);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure><p>在控制台中输出的结果如图所示:</p><p><img src="http://oyh928sxz.bkt.clouddn.com/map%E6%88%96forEach%E4%B8%AD%E7%9A%84this%E9%97%AE%E9%A2%98.png" alt=""></p><p>证实了上面的结论。</p><blockquote><pre><code>不管是forEach还是map在IE6-8下都不兼容</code></pre></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;forEach和map方法都是用来遍历数组中的每一项的;&lt;br&gt;
     
     </summary>
     
